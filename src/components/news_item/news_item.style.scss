@@ -1,0 +1,41 @@
+@import '../../scss/vars';
+
+.news-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    min-height: 300px;
+    border: 2px solid $dayBorder;
+    border-radius: 10px;
+    background-size: 100% 100%;
+    cursor: pointer;
+    transition: transform 0.5s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
+    &_date-info {
+        padding: 3px 5px;
+        border-bottom: 2px solid $dayBorder;
+        border-radius: 10px 10px 0 0;
+        color: $dayTextColor;
+        text-align: right;
+        background-color: $dayBgColor;
+    }
+
+    &_info-block {
+        max-height: 150px;
+        padding: 0 5px;
+        border-radius: 0 0 10px 10px ;
+        background-color: $dayBgColor;
+    }
+
+    &_title {
+        padding-bottom: 10px;
+        border-bottom: 2px solid $dayBorder;
+        text-align: center;
+        color: $dayTitleColor;
+    }
+}
