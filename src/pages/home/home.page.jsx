@@ -1,41 +1,22 @@
-import NewsContainer from '../../components/news_container/news_container.component.jsx';
+import { useEffect, useState } from 'react';
+import Container from '../../components/container/container.component.jsx';
+import { fetchFromServer } from '../../utils/server/fetches/serverFetches.js';
+import { NEWS_ITEM } from '../../utils/types.js';
+import './home.style.scss';
 
 const Home = () => {
-    let news = [
-        {
-            "id": 0,
-            "date": "04-03-2022",
-            "title": "Мы открылись! У нас вы найдете множество интереснех товаров!",
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur cumque explicabo id rem deserunt voluptatum praesentium vel pariatur quas libero sequi quibusdam illum, deleniti voluptatem illo molestiae officiis quos culpa?",
-            "imageSrc": "https://avatars.mds.yandex.net/get-zen_doc/2431229/pub_60a258b8cd17c611d44e10bd_60a258e3cd17c611d44e98f9/scale_1200"
-        },
-        {
-            "id": 1,
-            "date": "06-20-2022",
-            "title": "Открылась новая категория товаров!",
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur cumque explicabo id rem deserunt voluptatum praesentium vel pariatur quas libero sequi quibusdam illum, deleniti voluptatem illo molestiae officiis quos culpa?",
-            "imageSrc": "https://images.squarespace-cdn.com/content/v1/563a5fb2e4b0710808c31f27/1626648576474-ES3M52R86ECYJTDG3PL5/%D0%BB%D0%B5%D0%B3%D0%BE+.JPG"
-        },
-        {
-            "id": 2,
-            "date": "07-15-2022",
-            "title": "Привезли новый товар! Спешите пока не раскупили!",
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur cumque explicabo id rem deserunt voluptatum praesentium vel pariatur quas libero sequi quibusdam illum, deleniti voluptatem illo molestiae officiis quos culpa?",
-            "imageSrc": "https://static.tildacdn.com/tild6633-6437-4635-a132-663834653236/DSC07041.jpg"
-        },
-        {
-            "id": 3,
-            "date": "07-31-2022",
-            "title": "Акция! Скидка 50% в день рождения Джоан Роулинг!",
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur cumque explicabo id rem deserunt voluptatum praesentium vel pariatur quas libero sequi quibusdam illum, deleniti voluptatem illo molestiae officiis quos culpa?",
-            "imageSrc": "https://thumbs.dreamstime.com/b/d-%D0%B7%D0%BE-%D0%BE%D1%82%D0%BE-%D0%BC%D0%B8%D0%BD%D1%83%D1%81-%D0%B7%D0%BD%D0%B0%D0%BA-%D1%81%D0%BA%D0%B8-%D0%BA%D0%B8-%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D0%BD%D1%82%D0%BE%D0%B2-94359442.jpg"
-        },
-        
-    ];
+    let [news, setNews] = useState([]);
+
+    const fetchNews = () => {
+        fetchFromServer('http://localhost:5000/news', setNews);
+    }
+
+    useEffect(fetchNews, []);
 
     return (
-        <div>
-            <NewsContainer news={news.reverse()}/>
+        <div className='news-block'>
+            <h1 className='news-block_title'>Новости</h1>
+            <Container itemsType={NEWS_ITEM} items={[...news].reverse()}/>
         </div>
     );
 }

@@ -12,8 +12,8 @@ const Header = () => {
             </div>
             {/* <h1 className='header_title'>Harry Potter Store</h1> */}
             <div className='header_links-container'>
-                <Link className='header_link' to='/goods'>Товары</Link>
-                <Link className='header_link' to='/authentification'>Войти</Link>
+                <Link className='header_link' to='/categories'>ТОВАРЫ</Link>
+                <Link className='header_link' to='/authentification'>ВОЙТИ</Link>
             </div>
         </header>
     );

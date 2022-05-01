@@ -1,0 +1,17 @@
+@import '../../scss/_vars.scss';
+
+.categories-block {
+    width: 70%;
+    margin: 30px auto 0;
+    padding: 20px;
+    border: 2px solid $dayBorderColor;
+    border-radius: 10px;
+    background-color: $bgColor;
+    text-align: center;
+
+    &_title {
+        font-family: 'Harry Potter';
+        font-size: 60px;
+        color: $dayTitleColor;
+    }
+}

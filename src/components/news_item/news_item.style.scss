@@ -1,12 +1,13 @@
 @import '../../scss/vars';
 
+
 .news-item {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 300px;
-    min-height: 300px;
-    border: 2px solid $dayBorder;
+    height: 300px;
+    border: 3px solid $dayBorderColor;
     border-radius: 10px;
     background-size: 100% 100%;
     cursor: pointer;
@@ -15,26 +16,34 @@
     &:hover {
         transform: scale(1.1);
     }
+    &:hover &_date-info {
+        background-color: $hoverPanelColor;
+    }
+    &:hover &_info-block {
+        background-color: $hoverPanelColor;
+    }
 
     &_date-info {
         padding: 3px 5px;
-        border-bottom: 2px solid $dayBorder;
+        border-bottom: 2px solid $dayBorderColor;
         border-radius: 10px 10px 0 0;
         color: $dayTextColor;
         text-align: right;
-        background-color: $dayBgColor;
+        background-color: $panelColor;
+        transition: background-color 0.5s;
     }
 
     &_info-block {
         max-height: 150px;
         padding: 0 5px;
-        border-radius: 0 0 10px 10px ;
-        background-color: $dayBgColor;
+        border-top: 2px solid $dayBorderColor;
+        border-radius: 0 0 7px 7px ;
+        background-color: $panelColor;
+        transition: background-color 0.5s;
     }
 
     &_title {
-        padding-bottom: 10px;
-        border-bottom: 2px solid $dayBorder;
+        padding: 10px 0;
         text-align: center;
         color: $dayTitleColor;
     }

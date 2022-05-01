@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router";
 import Main from "./pages/main/main.page";
 import Home from "./pages/home/home.page";
 import Authentification from './pages/authentication/authentification.page';
-import Goods from "./pages/goods/goods.page";
+import Categories from "./pages/categories/categories.page";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Route path="/" element={<Main />}>
         <Route index element={<Home />}/>
         <Route path="/authentification" element={<Authentification />}/>
-        <Route path="/goods" element={<Goods />}/>
+        <Route path="/categories" element={<Categories />}/>
       </Route>
     </Routes>
   );

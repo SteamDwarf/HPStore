@@ -1,0 +1,12 @@
+@import '../../scss/vars.scss';
+
+.authentification-block {
+    display: flex;
+    width: 70%;
+    margin: 30px auto 0;
+    padding: 20px;
+    border: 2px solid $dayBorderColor;
+    border-radius: 10px;
+    background-color: $bgColor;
+    text-align: center;
+}

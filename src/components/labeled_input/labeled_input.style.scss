@@ -1,0 +1,14 @@
+.labeled-input_block {
+    display: flex;
+    flex-direction: column;
+}
+
+.labeled-input {
+    width: 200px;
+    padding: 5px;
+    outline: none;
+
+    &_label {
+        text-align: left;
+    }
+}

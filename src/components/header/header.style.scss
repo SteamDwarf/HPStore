@@ -7,9 +7,8 @@
     width: 100%;
     height: 80px;
     padding: 10px 20px;
-    border: 2px solid $dayBorder;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.321);
+    border-bottom: 2px solid $dayBorderColor;
+    background-color: $bgColor;
 
     &_logo-container {
         width: 50px;
@@ -17,23 +16,26 @@
     }
 
     &_logo {
-        fill: rgba(41, 78, 158, 0.875);
+        fill: $dayLogoColor;
     }
 
     &_title {
-        color: $dayBorder;
+        color: $dayBorderColor;
         font: 50px 'Harry Potter';
     }
 
     &_links-container {
         display: flex;
         justify-content: space-between;
-        width: 8%;
+        width: 10%;
     }
 
     &_link {
-        color: $dayBorder;
+        padding-bottom: 3px;
+        border-bottom: 2px solid $redColor;
+        color: $dayBorderColor;
         font-size: 20px;
+        font-weight: bold;
         font-family:  sans-serif;
         text-decoration: none;
     }
