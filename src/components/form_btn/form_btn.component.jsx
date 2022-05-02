@@ -1,6 +1,8 @@
+import './form_btn.style.scss';
+
 const FormBtn = ({text}) => {
     return (
-        <button type='submit'>{text}</button>
+        <button className="form-btn" type='submit'>{text}</button>
     );
 };
 

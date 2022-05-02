@@ -1,0 +1,27 @@
+@import '../../scss/vars.scss';
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &_title {
+        margin-bottom: 25px;
+        font-family: 'Harry Potter';
+        color: $dayTitleColor;
+    }
+
+    &_data {
+        padding: 50px;
+        border-radius: 10px;
+        background-color: $panelColor;
+    }
+
+    & &-btn {
+        margin-top: 20px;
+    }
+
+    & .labeled-input_block {
+        margin-bottom: 15px;
+    }
+}

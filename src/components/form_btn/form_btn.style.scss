@@ -1,0 +1,16 @@
+@import '../../scss/vars.scss';
+
+.form-btn {
+    padding: 10px;
+    border: 2px solid $dayBorderColor;
+    border-radius: 5px;
+    font-family: 'Fira Sans', sans-serif;
+    background-color: inherit;
+    outline: none;
+    transition: background-color 0.5s, color 0.5s;
+
+    &:hover {
+        color: #fff;
+        background-color: $dayBorderColor;
+    }
+}

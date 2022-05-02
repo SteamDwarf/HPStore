@@ -1,12 +1,24 @@
-export async function signUp(email, password, setStatusFunction) {
+export function signUp(email, password, setErrorFunction, setIsFetchingFunc, successFunction) {
+    setIsFetchingFunc(true);
     fetch(`http://localhost:5000/users?email=${email}`)
         .then(response => response.ok ? response.json() : Promise.reject())
-        .then(data => data.length > 0 ? setStatusFunction('Такой пользователь уже существует') : postNewUser(email, password, setStatusFunction)) 
-        .catch(error => setStatusFunction('Ошибка сервера при получении пользователя'))
+        .then(data => {
+            if(data.length > 0) {
+                setIsFetchingFunc(false);
+                setErrorFunction('Такой пользователь уже существует');
+                return
+            }
+            
+            postNewUser(email, password, setErrorFunction, setIsFetchingFunc, successFunction);
+        }) 
+        .catch(() => {
+            setIsFetchingFunc(false);
+            setErrorFunction('Ошибка сервера при получении пользователя');
+        })
     
 }
 
-const postNewUser = (email, password, setStatusFunction) => {
+const postNewUser = (email, password, setErrorFunction, setIsFetchingFunc, successFunction) => {
     fetch(`http://localhost:5000/users?email=${email}`, {
         method: 'POST',
         headers: {
@@ -14,6 +26,9 @@ const postNewUser = (email, password, setStatusFunction) => {
         },
         body: JSON.stringify({id: Date.now(), email: email, password: password})
     })
-        .then(response => response.ok ? setStatusFunction('Пользователь успешно зарегистрирован') : Promise.reject())
-        .catch(error => setStatusFunction('Ошибка сервера при регистрации'))
+        .then(response => response.ok ? successFunction() : Promise.reject())
+        .catch(error => {
+            setIsFetchingFunc(false);
+            setErrorFunction('Ошибка сервера при регистрации');
+        })
 }
