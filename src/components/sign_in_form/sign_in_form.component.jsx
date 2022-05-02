@@ -1,8 +1,9 @@
-import { Fragment, useState } from "react";
+import { Fragment, useContext, useState } from "react";
 import LabeledInput from "../labeled_input/labeled_input.component";
 import { signIn } from "../../utils/server/authentification/sign-in";
 import Form from "../form/form.component";
 import './sign_in_form.style.scss';
+import { UserContext } from "../../contexts/userContext.context";
 
 const defaultSignInData = {
     email: '',
@@ -14,16 +15,11 @@ const SignInForm = () => {
     const {email, password} = signInData;
     const [signInError, setSignInError] = useState('');
     const [isFetching, setIsFetching] = useState(false);
+    const {setUser} = useContext(UserContext);
 
     const onChangeHandler = (event) => {
         setSignInData({...signInData, [event.target.name]: event.target.value})
     }
-    /* const changeEmail = (event) => {
-        setSignInData({...signInData, email: event.target.value});
-    }
-    const changePassword = (event) => {
-        setSignInData({...signInData, password: event.target.value});
-    } */
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -32,7 +28,8 @@ const SignInForm = () => {
         signIn(email, password, setSignInError, setIsFetching, successFetching);
     }
 
-    function successFetching() {
+    function successFetching(userData) {
+        setUser(userData);
         clearForm();
         setIsFetching(false);
         setSignInError('Вы успешно вошли в свой аккаунт');
@@ -79,38 +76,6 @@ const SignInForm = () => {
             />
         </div>
     )
-    /* return (
-        <form className="sign-in-form" onSubmit={onSubmit}>
-            <h1>Авторизоваться</h1>
-            <div className="input-block">
-                <LabeledInput 
-                    labelText='Электронная почта'
-                    inputType='email'
-                    inputValue={email}
-                    onChange={changeEmail} 
-                    isRequired={true}
-                />
-                <label className="input_error-label"></label>
-            </div>
-            <div className="input-block">
-                <LabeledInput 
-                    labelText='Пароль'
-                    inputType='password'
-                    inputValue={password}
-                    onChange={changePassword} 
-                    isRequired={true}
-                />
-                <label className="input_error-label"></label>
-            </div>
-
-            {isFetching 
-                ? <label className="sign-up-error">Подождите...</label>
-                : null
-            }
-            <label className="sign-up-error">{signInError}</label>
-            <FormBtn text='Войти'/>
-        </form>
-    ) */
 };
 
 export default SignInForm;

@@ -26,7 +26,8 @@ const postNewUser = (email, password, setErrorFunction, setIsFetchingFunc, succe
         },
         body: JSON.stringify({id: Date.now(), email: email, password: password})
     })
-        .then(response => response.ok ? successFunction() : Promise.reject())
+        .then(response => response.ok ? response.json() : Promise.reject())
+        .then(data => successFunction({...data, password: ''}))
         .catch(error => {
             setIsFetchingFunc(false);
             setErrorFunction('Ошибка сервера при регистрации');

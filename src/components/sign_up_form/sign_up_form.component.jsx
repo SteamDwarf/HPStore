@@ -1,4 +1,5 @@
-import { Fragment, useState } from "react";
+import { Fragment, useContext, useState } from "react";
+import { UserContext } from "../../contexts/userContext.context";
 import { signUp } from "../../utils/server/authentification/sign-up";
 import Form from "../form/form.component";
 import FormBtn from "../form_btn/form_btn.component";
@@ -16,20 +17,11 @@ const SignUpForm = () => {
     const {email, password, repeatedPassword} = signUpData;
     const [signUpError, setSignUpError] = useState('');
     const [isFetching, setIsFetching] = useState(false);
+    const {setUser} = useContext(UserContext);
 
     const onChangeHandler = (event) => {
         setSignUpData({...signUpData, [event.target.name]: event.target.value})
     }
-
-    /* const changeEmail = (event) => {
-        setSignUpData({...signUpData, email: event.target.value});
-    }
-    const changePassword = (event) => {
-        setSignUpData({...signUpData, password: event.target.value});
-    }
-    const changeRepeatedPassword = (event) => {
-        setSignUpData({...signUpData, repeatedPassword: event.target.value});
-    } */
 
     const onSubmit = async (event) => {
         event.preventDefault();
@@ -43,7 +35,8 @@ const SignUpForm = () => {
         signUp(email, password, setSignUpError, setIsFetching, successFetching);
     }
 
-    function successFetching() {
+    function successFetching(userData) {
+        setUser(userData);
         clearForm();
         setIsFetching(false);
         setSignUpError('Пользователь успешно зарегистрирован');
@@ -101,47 +94,6 @@ const SignUpForm = () => {
             />
         </div>
     );
-    /* return (
-        <form className="sign-up-form" onSubmit={onSubmit}>
-            <h1>Регистрация</h1>
-            <div className="input-block">
-                <LabeledInput 
-                    labelText='Электронная почта'
-                    inputType='email'
-                    inputValue={email}
-                    onChange={changeEmail} 
-                    isRequired={true}
-                />
-                <label className="input_error-label"></label>
-            </div>
-            <div className="input-block">
-                <LabeledInput 
-                    labelText='Пароль'
-                    inputType='password'
-                    inputValue={password}
-                    onChange={changePassword} 
-                    isRequired={true}
-                />
-                <label className="input_error-label"></label>
-            </div>
-            <div className="input-block">
-                <LabeledInput 
-                    labelText='Подтвердите пароль'
-                    inputType='password'
-                    inputValue={repeatedPassword} 
-                    onChange={changeRepeatedPassword}
-                    isRequired={true}
-                />
-                <label className="input_error-label"></label>
-            </div>
-            {isFetching 
-                ? <label className="sign-up-error">Подождите...</label>
-                : null
-            }
-            <label className="sign-up-error">{signUpError}</label>
-            <FormBtn text='Зарегистрироваться'/>
-        </form>
-    ); */
 };
 
 export default SignUpForm;

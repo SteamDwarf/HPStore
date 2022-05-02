@@ -12,6 +12,11 @@
     }
 
     &_data {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        min-width: 400px;
         padding: 50px;
         border-radius: 10px;
         background-color: $panelColor;

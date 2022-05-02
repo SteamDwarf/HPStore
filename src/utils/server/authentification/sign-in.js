@@ -5,7 +5,7 @@ export function signIn(email, password, setErrorFunction, setIsFetchingFunc, suc
         .then(data => {
             if(data.length <= 0) {
                 setIsFetchingFunc(false);
-                setErrorFunction('Такой пользователь не найден. Пожалуйста зарегистрируйтесь');
+                setErrorFunction('Данный пользователь не найден');
                 return
             }
 
@@ -15,7 +15,7 @@ export function signIn(email, password, setErrorFunction, setIsFetchingFunc, suc
                 return
             }
 
-            successFunction();
+            successFunction({...data[0], password: ''});
         }) 
         .catch(() => {
             setIsFetchingFunc(false);
