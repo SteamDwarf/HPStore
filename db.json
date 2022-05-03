@@ -31,19 +31,47 @@
   ],
   "categories": [
     {
-      "id": 0,
+      "id": "clothes",
       "title": "Одежда",
-      "imageSrc": "https://sc01.alicdn.com/kf/HTB1jckTOXXXXXXYXFXXq6xXFXXXC/Wholesale-Hot-Sale-Harry-Potter-Costume-For.jpg"
+      "imageSrc": "https://sc01.alicdn.com/kf/HTB1jckTOXXXXXXYXFXXq6xXFXXXC/Wholesale-Hot-Sale-Harry-Potter-Costume-For.jpg",
+      "goods": [
+        {
+          "id": 0,
+          "title": "Галстуки 4-х факультетов",
+          "price": 1600,
+          "imageSrc": "https://ae01.alicdn.com/kf/HTB1FveMdi6guuRkSnb4q6zu4XXaG.jpg"
+        },
+        {
+          "id": 1,
+          "title": "Мантия факультета Гриффиндор",
+          "price": 1400,
+          "imageSrc": "https://wantshop.ru/media/tmp/38ff73391ca1c47bd2ad0a8986e38054.jpeg"
+        },
+        {
+          "id": 2,
+          "title": "Перчатки Когтевран",
+          "price": 400,
+          "imageSrc": "https://fartovy.ru/image/cache/catalog/mantii-garri-pottera-folder/Gants-Harry-Potter-Serdaigle-400x400.jpg"
+        },
+        {
+          "id": 3,
+          "title": "Шапка Слизерин",
+          "price": 400,
+          "imageSrc": "https://avatars.mds.yandex.net/i?id=2a0000017a0e9b5d94893fe4d4345851db60-5207234-images-thumbs&n=13"
+        }
+      ]
     },
     {
-      "id": 1,
+      "id": "sweets",
       "title": "Товары из магазина 'Сладкое королевство'",
-      "imageSrc": "https://pbs.twimg.com/media/D4wITbeX4AAMF-2.jpg"
+      "imageSrc": "https://pbs.twimg.com/media/D4wITbeX4AAMF-2.jpg",
+      "goods": []
     },
     {
-      "id": 2,
+      "id": "wheezes",
       "title": "Всевозможные волшебные вредилки",
-      "imageSrc": "https://i.pinimg.com/originals/66/c1/71/66c171c1e22851f9a4be695518cad938.jpg"
+      "imageSrc": "https://i.pinimg.com/originals/66/c1/71/66c171c1e22851f9a4be695518cad938.jpg",
+      "goods": []
     }
   ],
   "users": [
@@ -61,6 +89,36 @@
       "id": 1651524078988,
       "email": "dhsfs@sfse.ry1",
       "password": "2"
+    }
+  ],
+  "goods": [
+    {
+      "id": 0,
+      "categoryId": "clothes",
+      "title": "Галстуки 4-х факультетов",
+      "price": 1600,
+      "imageSrc": "https://ae01.alicdn.com/kf/HTB1FveMdi6guuRkSnb4q6zu4XXaG.jpg"
+    },
+    {
+      "id": 1,
+      "categoryId": "clothes",
+      "title": "Мантия факультета Гриффиндор",
+      "price": 1400,
+      "imageSrc": "https://wantshop.ru/media/tmp/38ff73391ca1c47bd2ad0a8986e38054.jpeg"
+    },
+    {
+      "id": 2,
+      "categoryId": "clothes",
+      "title": "Перчатки Когтевран",
+      "price": 400,
+      "imageSrc": "https://fartovy.ru/image/cache/catalog/mantii-garri-pottera-folder/Gants-Harry-Potter-Serdaigle-400x400.jpg"
+    },
+    {
+      "id": 3,
+      "categoryId": "clothes",
+      "title": "Шапка Слизерин",
+      "price": 400,
+      "imageSrc": "https://avatars.mds.yandex.net/i?id=2a0000017a0e9b5d94893fe4d4345851db60-5207234-images-thumbs&n=13"
     }
   ]
 }

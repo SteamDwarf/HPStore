@@ -1,6 +1,6 @@
-@import '../../scss/_vars.scss';
+@import '../../scss/vars.scss';
 
-.categories-block {
+.page-container {
     width: 70%;
     margin: 30px auto 0;
     padding: 20px;
@@ -11,7 +11,6 @@
 
     &_title {
         font-family: 'Harry Potter';
-        font-size: 60px;
         color: $dayTitleColor;
     }
 }

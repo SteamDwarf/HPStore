@@ -4,3 +4,4 @@ export const fetchFromServer = (url, setFunction) => {
         .then(data => setFunction(data))
         .catch(error => console.error(error));
 }
+
