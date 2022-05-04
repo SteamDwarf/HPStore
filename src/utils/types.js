@@ -1,5 +1,6 @@
 export const NEWS_ITEM = 'NEWS_ITEM'; 
 export const CATEGORY_ITEM = 'CATEGORY_ITEM'; 
+export const PRODUCT_ITEM = 'PRODUCT_ITEM';
 
 export const DEFAULT_CATEGORY_DATA = {
     id: "",

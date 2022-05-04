@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import {Link} from 'react-router-dom';
 import {ReactComponent as Logo} from '../../assets/logo/golden_harry_magic_movie_potter_snitch_icon_183153.svg';
 import { UserContext } from '../../contexts/userContext.context';
+import CartBtn from '../cart-btn/cart-btn.component';
 import './header.style.scss';
 
 const Header = () => {
@@ -26,7 +27,7 @@ const Header = () => {
                     ?<span className='header_link' onClick={signOut}>ВЫЙТИ</span>
                     :<Link className='header_link' to='/authentification'>ВОЙТИ</Link>
                 }
-                
+                <CartBtn />
             </div>
         </header>
     );

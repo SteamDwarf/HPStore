@@ -3,14 +3,13 @@ import { fetchFromServer } from "../utils/server/fetches/serverFetches";
 
 const defaultProductsValue = {
     products: [],
-    setProducts: () => []
 }
 
 export const ProductsContext = createContext(defaultProductsValue);
 
 export const ProductsProvider = ({children}) => {
     const [products, setProducts] = useState([]);
-    const value = {products, setProducts};
+    const value = {products};
 
     const fetchProducts = () => {
         fetchFromServer('http://localhost:5000/categories', setProducts);

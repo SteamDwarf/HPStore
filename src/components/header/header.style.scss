@@ -26,8 +26,8 @@
 
     &_links-container {
         display: flex;
-        justify-content: space-between;
-        width: 10%;
+        align-items: center;
+        column-gap: 20px;
     }
 
     &_link {

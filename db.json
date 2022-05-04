@@ -32,29 +32,34 @@
   "categories": [
     {
       "id": "clothes",
+      "name": "clothes",
       "title": "Одежда",
       "imageSrc": "https://sc01.alicdn.com/kf/HTB1jckTOXXXXXXYXFXXq6xXFXXXC/Wholesale-Hot-Sale-Harry-Potter-Costume-For.jpg",
       "goods": [
         {
           "id": 0,
+          "name": "ties-4x",
           "title": "Галстуки 4-х факультетов",
           "price": 1600,
           "imageSrc": "https://ae01.alicdn.com/kf/HTB1FveMdi6guuRkSnb4q6zu4XXaG.jpg"
         },
         {
           "id": 1,
+          "name": "mantle-gryffindor",
           "title": "Мантия факультета Гриффиндор",
           "price": 1400,
           "imageSrc": "https://wantshop.ru/media/tmp/38ff73391ca1c47bd2ad0a8986e38054.jpeg"
         },
         {
           "id": 2,
+          "name": "ravenclaw-gloves",
           "title": "Перчатки Когтевран",
           "price": 400,
           "imageSrc": "https://fartovy.ru/image/cache/catalog/mantii-garri-pottera-folder/Gants-Harry-Potter-Serdaigle-400x400.jpg"
         },
         {
           "id": 3,
+          "name": "slytherin-hat",
           "title": "Шапка Слизерин",
           "price": 400,
           "imageSrc": "https://avatars.mds.yandex.net/i?id=2a0000017a0e9b5d94893fe4d4345851db60-5207234-images-thumbs&n=13"
@@ -63,15 +68,75 @@
     },
     {
       "id": "sweets",
+      "name": "sweets",
       "title": "Товары из магазина 'Сладкое королевство'",
       "imageSrc": "https://pbs.twimg.com/media/D4wITbeX4AAMF-2.jpg",
-      "goods": []
+      "goods": [
+        {
+          "id": 0,
+          "name": "jelly-slugs",
+          "title": "Желатиновые червячки",
+          "price": 120,
+          "imageSrc": "https://assorti-market.ru/img/goods/17539.7ad097d57dcd4bac0b745e1b53ad8008.jpg"
+        },
+        {
+          "id": 1,
+          "name": "chocolate-frog",
+          "title": "Шоколадная лягушка",
+          "price": 150,
+          "imageSrc": "https://i5.walmartimages.com/asr/23a071e2-d5e0-46bf-b929-b92e701a1e07_2.11d38d504759122b1dc998051918f0f8.jpeg"
+        },
+        {
+          "id": 2,
+          "name": "caramel-bombs",
+          "title": "Карамельные бомбы",
+          "price": 200,
+          "imageSrc": "https://i.pinimg.com/originals/68/1a/cc/681acc248286f62857cde3f209ebe8d6.jpg"
+        },
+        {
+          "id": 3,
+          "name": "sugar-quills",
+          "title": "Сахарные перья",
+          "price": 100,
+          "imageSrc": "https://i.pinimg.com/originals/f7/97/03/f79703840a57434cb67bf0e546bb8172.jpg"
+        }
+      ]
     },
     {
       "id": "wheezes",
+      "name": "wheezes",
       "title": "Всевозможные волшебные вредилки",
       "imageSrc": "https://i.pinimg.com/originals/66/c1/71/66c171c1e22851f9a4be695518cad938.jpg",
-      "goods": []
+      "goods": [
+        {
+          "id": 0,
+          "name": "fireworks-hocus-pocus",
+          "title": "Фейерверк Фокус-покус",
+          "price": 250,
+          "imageSrc": "https://oxypoliticselectionblog.files.wordpress.com/2012/09/filibusterfirework.jpg"
+        },
+        {
+          "id": 1,
+          "name": "pygmy-fluffy",
+          "title": "Карликовый пушистик",
+          "price": 300,
+          "imageSrc": "https://m.media-amazon.com/images/I/81-Mhaceh1L._AC_UL960_QL65_.jpg"
+        },
+        {
+          "id": 2,
+          "name": "perfume-cupid-crystals",
+          "title": "Духи 'Кристалы Купидона'",
+          "price": 800,
+          "imageSrc": "https://i.ytimg.com/vi/lZdWGoXoPBs/maxresdefault.jpg"
+        },
+        {
+          "id": 3,
+          "name": "velcro-sneakers",
+          "title": "Липучие кросовки",
+          "price": 1500,
+          "imageSrc": "https://static.wikia.nocookie.net/harrypotter/images/5/57/Sticky_Trainers-0.jpg/revision/latest/scale-to-width-down/1000?cb=20160521043230&path-prefix=ru"
+        }
+      ]
     }
   ],
   "users": [

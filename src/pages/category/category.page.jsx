@@ -1,19 +1,23 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
+import Container from "../../components/container/container.component";
 import PageContainer from "../../components/page-container/page-container.component";
+import ProductItem from "../../components/product-item/product-item.component";
 import { ProductsContext } from "../../contexts/products.context";
-import { fetchCategory, fetchGoodsByCategoryId, fetchGoodsByCategoryName } from "../../utils/server/fetches/goodsFetches";
-import { fetchFromServer } from "../../utils/server/fetches/serverFetches";
-import { DEFAULT_CATEGORY_DATA } from "../../utils/types";
+import { PRODUCT_ITEM } from "../../utils/types";
 
 const Category = () => {
-    const categoryId = useParams().id;
+    const categoryId = useParams().name;
     const {products} = useContext(ProductsContext);
-    const category = products.find(item => item.id === categoryId);
+    const category = products.find(item => item.name === categoryId);
 
     return (
         <PageContainer title={category?.title}>
-            {category?.goods.map(item => <h2 key={item.id}>{item.title}</h2>)}
+            {
+                category
+                ? <Container itemsType={PRODUCT_ITEM} items={category?.goods}/>
+                : null
+            }
         </PageContainer>
     );
 };
