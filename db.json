@@ -73,28 +73,28 @@
       "imageSrc": "https://pbs.twimg.com/media/D4wITbeX4AAMF-2.jpg",
       "goods": [
         {
-          "id": 0,
+          "id": 4,
           "name": "jelly-slugs",
           "title": "Желатиновые червячки",
           "price": 120,
           "imageSrc": "https://assorti-market.ru/img/goods/17539.7ad097d57dcd4bac0b745e1b53ad8008.jpg"
         },
         {
-          "id": 1,
+          "id": 5,
           "name": "chocolate-frog",
           "title": "Шоколадная лягушка",
           "price": 150,
           "imageSrc": "https://i5.walmartimages.com/asr/23a071e2-d5e0-46bf-b929-b92e701a1e07_2.11d38d504759122b1dc998051918f0f8.jpeg"
         },
         {
-          "id": 2,
+          "id": 6,
           "name": "caramel-bombs",
           "title": "Карамельные бомбы",
           "price": 200,
           "imageSrc": "https://i.pinimg.com/originals/68/1a/cc/681acc248286f62857cde3f209ebe8d6.jpg"
         },
         {
-          "id": 3,
+          "id": 7,
           "name": "sugar-quills",
           "title": "Сахарные перья",
           "price": 100,
@@ -109,28 +109,28 @@
       "imageSrc": "https://i.pinimg.com/originals/66/c1/71/66c171c1e22851f9a4be695518cad938.jpg",
       "goods": [
         {
-          "id": 0,
+          "id": 8,
           "name": "fireworks-hocus-pocus",
           "title": "Фейерверк Фокус-покус",
           "price": 250,
           "imageSrc": "https://oxypoliticselectionblog.files.wordpress.com/2012/09/filibusterfirework.jpg"
         },
         {
-          "id": 1,
+          "id": 9,
           "name": "pygmy-fluffy",
           "title": "Карликовый пушистик",
           "price": 300,
           "imageSrc": "https://m.media-amazon.com/images/I/81-Mhaceh1L._AC_UL960_QL65_.jpg"
         },
         {
-          "id": 2,
+          "id": 10,
           "name": "perfume-cupid-crystals",
           "title": "Духи 'Кристалы Купидона'",
           "price": 800,
           "imageSrc": "https://i.ytimg.com/vi/lZdWGoXoPBs/maxresdefault.jpg"
         },
         {
-          "id": 3,
+          "id": 11,
           "name": "velcro-sneakers",
           "title": "Липучие кросовки",
           "price": 1500,

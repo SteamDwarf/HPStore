@@ -1,0 +1,30 @@
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 15px;
+    height: 100px;
+    padding: 10px;
+
+    &_image {
+        width: 40%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &_info-block {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+    }
+
+    &_title {
+        margin-bottom: 10px;
+        border-bottom: 2px solid;
+    }
+
+    &_price {
+        font-weight: bold;
+        font-size: 18px;
+    }
+}
