@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import './labeled_input.style.scss';
 
 const LabeledInput = ({labelText, type, value, name, onChange, isRequired = false}) => {

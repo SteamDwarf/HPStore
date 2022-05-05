@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {ReactComponent as Logo} from '../../assets/logo/golden_harry_magic_movie_potter_snitch_icon_183153.svg';
 import { ProductsContext } from '../../contexts/products.context';
 import { UserContext } from '../../contexts/userContext.context';
-import CartBtn from '../cart-btn/cart-btn.component';
+import CartBtn from '../btns/cart-btn/cart-btn.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import './header.style.scss';
 

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { ProductsContext } from '../../contexts/products.context';
-import AddToCartBtn from '../add-to-cart-btn/add-to-cart-btn.component';
+import AddToCartBtn from '../btns/add-to-cart-btn/add-to-cart-btn.component';
 import './product-item.style.scss';
 
 const ProductItem = ({productItem}) => {

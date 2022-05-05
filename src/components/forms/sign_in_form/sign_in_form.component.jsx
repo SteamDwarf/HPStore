@@ -1,9 +1,9 @@
 import { Fragment, useContext, useState } from "react";
-import LabeledInput from "../labeled_input/labeled_input.component";
-import { signIn } from "../../utils/server/authentification/sign-in";
+import LabeledInput from "../../inputs/labeled_input/labeled_input.component";
+import { signIn } from "../../../utils/server/authentification/sign-in";
 import Form from "../form/form.component";
 import './sign_in_form.style.scss';
-import { UserContext } from "../../contexts/userContext.context";
+import { UserContext } from "../../../contexts/userContext.context";
 
 const defaultSignInData = {
     email: '',

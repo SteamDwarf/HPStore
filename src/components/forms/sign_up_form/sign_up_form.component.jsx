@@ -1,9 +1,8 @@
 import { Fragment, useContext, useState } from "react";
-import { UserContext } from "../../contexts/userContext.context";
-import { signUp } from "../../utils/server/authentification/sign-up";
+import { UserContext } from "../../../contexts/userContext.context";
+import { signUp } from "../../../utils/server/authentification/sign-up";
 import Form from "../form/form.component";
-import FormBtn from "../form_btn/form_btn.component";
-import LabeledInput from "../labeled_input/labeled_input.component";
+import LabeledInput from "../../inputs/labeled_input/labeled_input.component";
 import './sign_up_form.style.scss';
 
 const defaultSignUpData = {

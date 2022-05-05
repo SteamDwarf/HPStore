@@ -1,0 +1,32 @@
+@import '../../scss/vars.scss';
+
+.purchases-table {
+    display: grid;
+    grid-template: '1 1 1 1 1 ';
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px solid $dayBorderColor;
+    background-color: $panelColor;
+
+    &_body {
+        background-color: $panelColor;
+    }
+
+    &_data {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 300px;
+    }
+
+    &_title {
+        padding-bottom: 20px;
+        border-bottom: 2px solid $dayBorderColor;
+    }
+
+    &_image {
+        width: 30%;
+        height: 50%;
+        object-fit: cover;
+    }
+}

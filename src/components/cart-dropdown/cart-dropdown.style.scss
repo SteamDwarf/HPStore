@@ -16,6 +16,7 @@
     background-color: $panelColorOpaque;
 
     &_container {
+        width: 100%;
         height: 80%;
         overflow-y: scroll;
     }
@@ -26,5 +27,6 @@
 }
 
 .empty-cart-title {
-    margin-top: 80%;
+    margin-top: 60%;
+    text-align: center;
 }

@@ -1,0 +1,19 @@
+@import '../../../scss/vars.scss';
+
+.purchases-header {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    padding: 20px 10px;
+    border-top: 2px solid $dayBorderColor;
+    border-bottom: 2px solid $dayBorderColor;
+    background-color: $panelColor;
+
+    &_title {
+        width: 20.25%;
+    }
+
+    &_title:first-of-type {
+        width: 19%;
+    }
+}
