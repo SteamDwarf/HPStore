@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ProductsContext } from "../../../contexts/products.context";
+import Button from '../../btns/button/button.component';
 import './purchases-total.style.scss';
 
 const PurchasesTotal = () => {
@@ -7,9 +8,12 @@ const PurchasesTotal = () => {
 
     return (
         <div className="purchases-total">
-            Общая сумма: {cartProducts.reduce((sum, curProduct) => {
-                return sum + curProduct.price
-            }, 0)} P
+            <div className="purchases-total_text">
+                Общая сумма: {cartProducts.reduce((sum, curProduct) => {
+                    return sum + curProduct.price * curProduct.amount
+                }, 0)} P
+            </div>
+            <Button>Подтвердить покупку</Button>
         </div>
     );
 };

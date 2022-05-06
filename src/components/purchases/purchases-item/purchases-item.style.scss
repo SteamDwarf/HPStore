@@ -21,4 +21,17 @@
         padding: 0 15px;
         object-fit: contain;
     }
+
+    &_amount {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &_interactive {
+        font-weight: bold;
+        font-size: 2em !important;
+        color: $dayTitleColor;
+        cursor: pointer;
+    }
 }
