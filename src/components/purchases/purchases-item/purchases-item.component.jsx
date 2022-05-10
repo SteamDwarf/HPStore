@@ -7,20 +7,16 @@ const PurchasesItem = ({item}) => {
     const {increaseProductAmountDispatch,
             decreaseProductAmountDispatch,
             deleteProductDispatch
-            /* changeCartProductAmount, deleteProduct */
         } = useContext(ProductsContext);
 
     const decrementProductAmount = () => {
-        decreaseProductAmountDispatch(item.id);
-        //changeCartProductAmount(item.id, DECREMENTING_ITEM);
+        decreaseProductAmountDispatch(item);
     }
     const incrementProductAmount = () => {
-        increaseProductAmountDispatch(item.id);
-        //changeCartProductAmount(item.id, INCREMENTING_ITEM);
+        increaseProductAmountDispatch(item);
     }
     const deleteProductHandler = () => {
         deleteProductDispatch(item);
-        //deleteProduct(item);
     }
 
     return (

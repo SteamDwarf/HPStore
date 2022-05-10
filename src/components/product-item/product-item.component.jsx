@@ -5,7 +5,7 @@ import './product-item.style.scss';
 
 const ProductItem = ({productItem}) => {
     const {name, title, price, imageSrc} = productItem;
-    const {/* addProductToCart */addProductToCartDispatch} = useContext(ProductsContext);
+    const {addProductToCartDispatch} = useContext(ProductsContext);
 
     const addProductToCartHandler = () => {
         addProductToCartDispatch(productItem);
