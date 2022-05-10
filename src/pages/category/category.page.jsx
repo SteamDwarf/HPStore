@@ -7,9 +7,9 @@ import { ProductsContext } from "../../contexts/products.context";
 import { PRODUCT_ITEM } from "../../utils/types";
 
 const Category = () => {
-    const categoryId = useParams().name;
+    const categoryName = useParams().name;
     const {products} = useContext(ProductsContext);
-    const category = products.find(item => item.name === categoryId);
+    const category = products.find(item => item.name === categoryName);
 
     return (
         <PageContainer title={category?.title}>

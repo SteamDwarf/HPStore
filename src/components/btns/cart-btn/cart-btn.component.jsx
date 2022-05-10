@@ -4,14 +4,14 @@ import { useContext } from 'react';
 import { ProductsContext } from '../../../contexts/products.context';
 
 const CartBtn = () => {
-    const {isCartDropdownOpen, setCartDropdownOpen, cartProductsAmount} = useContext(ProductsContext);
+    const {isCartDropdownOpen, toggleCartDropdownDispatch/* setCartDropdownOpen */, cartProductsAmount} = useContext(ProductsContext);
 
-    const toggleCartDropdown = () => {
+    /* const toggleCartDropdown = () => {
         setCartDropdownOpen(!isCartDropdownOpen);
-    }
+    } */
 
     return (
-        <div className='cart-btn' onClick={toggleCartDropdown}>
+        <div className='cart-btn' onClick={toggleCartDropdownDispatch}>
             <img className='cart-btn_logo' src={cartImg} alt="" />
             <span className='cart-items-count'>{cartProductsAmount}</span>
         </div>

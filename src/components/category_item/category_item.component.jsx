@@ -5,7 +5,7 @@ const CategoryItem = ({category}) => {
     const {title, imageSrc} = category;
     
     return (
-        <Link className="category-item" to={`/categories/${category.id}`} style={{
+        <Link className="category-item" to={`/categories/${category.name}`} style={{
             backgroundImage: `url(${imageSrc})`
         }}>
             <div className="category-item_info-block">

@@ -4,16 +4,23 @@ import { DECREMENTING_ITEM, INCREMENTING_ITEM } from '../../../utils/types';
 import './purchases-item.style.scss';
 
 const PurchasesItem = ({item}) => {
-    const {changeCartProductAmount, deleteProduct} = useContext(ProductsContext);
+    const {increaseProductAmountDispatch,
+            decreaseProductAmountDispatch,
+            deleteProductDispatch
+            /* changeCartProductAmount, deleteProduct */
+        } = useContext(ProductsContext);
 
     const decrementProductAmount = () => {
-        changeCartProductAmount(item.id, DECREMENTING_ITEM);
+        decreaseProductAmountDispatch(item.id);
+        //changeCartProductAmount(item.id, DECREMENTING_ITEM);
     }
     const incrementProductAmount = () => {
-        changeCartProductAmount(item.id, INCREMENTING_ITEM);
+        increaseProductAmountDispatch(item.id);
+        //changeCartProductAmount(item.id, INCREMENTING_ITEM);
     }
     const deleteProductHandler = () => {
-        deleteProduct(item);
+        deleteProductDispatch(item);
+        //deleteProduct(item);
     }
 
     return (
