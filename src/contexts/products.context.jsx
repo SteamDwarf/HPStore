@@ -1,6 +1,6 @@
-import { createContext, useState, useEffect, useReducer } from "react"
+import { createContext, useEffect, useReducer } from "react"
 import { fetchFromServer } from "../utils/server/fetches/serverFetches";
-import { DECREMENTING_ITEM, INCREMENTING_ITEM, ProductsActions } from "../utils/types";
+import { ProductsActions } from "../utils/types";
 
 const defaultProductsValue = {
     products: [],
@@ -11,8 +11,6 @@ const defaultProductsValue = {
     totalProductsCost: 0
 }
 
-export const ProductsContext = createContext(defaultProductsValue);
-
 const setProductsAction = (products) => ({type: ProductsActions.SET_PRODUCTS, payload: products});
 const toggleCartDropdownAction = () => ({type: ProductsActions.TOGGLE_CART_DROPDOWN});
 const updateCartAction = (newCartProducts, newCartProductsAmount, newTotalProductsCost) => (
@@ -20,13 +18,8 @@ const updateCartAction = (newCartProducts, newCartProductsAmount, newTotalProduc
         payload: {cartProducts: newCartProducts, cartProductsAmount: newCartProductsAmount, totalProductsCost: newTotalProductsCost}
     }
 );
-/* const addProductToCartAction = (product) => ({type: ProductsActions.ADD_PRODUCT_TO_CART, payload: product});
-const increaseCartProductAmountAction = (productId) => ({type: ProductsActions.INCREASE_CART_PRODUCT_AMOUNT, payload: productId});
-const decreaseCartProductAmountAction = (productId) => ({type: ProductsActions.DECREASE_CART_PRODUCT_AMOUNT, payload: productId});
-const deleteProductAction = (product) => ({type: ProductsActions.DELETE_PRODUCT_FROM_CART, payload: product}); */
 
-
-const increaseCartProductAmount = (cartProducts, productId) => {
+function increaseCartProductAmount(cartProducts, productId) {
     const newCartProducts = cartProducts.reduce((result, curProduct) => {
         if(productId === curProduct.id)
             return [...result, {...curProduct, amount: curProduct.amount + 1}];
@@ -36,7 +29,7 @@ const increaseCartProductAmount = (cartProducts, productId) => {
 
     return newCartProducts;
 }
-const decreaseCartProductAmount = (cartProducts, productId) => {
+function decreaseCartProductAmount(cartProducts, productId) {
     const newCartProducts = cartProducts.reduce((result, curProduct) => {
         if(productId === curProduct.id) {
             if(curProduct.amount - 1 > 0)
@@ -57,10 +50,6 @@ function deleteProduct(cartProducts, productId) {
     });
 }
 
-/* function countProductsAmount(cartProductsAmount, productAmount) {
-    return cartProductsAmount - productAmount;
-} */
-
 function ProductsReducer(state, action) {
     switch(action.type) {
         case ProductsActions.SET_PRODUCTS:
@@ -69,39 +58,20 @@ function ProductsReducer(state, action) {
             return {...state, isCartDropdownOpen: !state.isCartDropdownOpen};
         case ProductsActions.UPDATE_CART:
             return {...state, ...action.payload}
-        /* case ProductsActions.ADD_PRODUCT_TO_CART:
-            return {...state, 
-                        cartProducts: [...state.cartProducts, {...action.payload, amount: 1}], 
-                        cartProductsAmount: state.cartProductsAmount + 1
-                    };
-        case ProductsActions.INCREASE_CART_PRODUCT_AMOUNT:
-            return {...state, 
-                        cartProducts: increaseCartProductAmount(state.cartProducts, action.payload), 
-                        cartProductsAmount: state.cartProductsAmount + 1
-                    };
-        case ProductsActions.DECREASE_CART_PRODUCT_AMOUNT: 
-            return {...state, 
-                        cartProducts: decreaseCartProductAmount(state.cartProducts, action.payload),
-                        cartProductsAmount: state.cartProductsAmount - 1
-                    };
-        case ProductsActions.DELETE_PRODUCT_FROM_CART:
-            return {...state,
-                        cartProducts: deleteProduct(state.cartProducts, action.payload.id),
-                        cartProductsAmount: countProductsAmount(state.cartProductsAmount, action.payload.amount)
-                    }; */
         default:
             throw new Error(`${action.type} incorrect value!`);
     }
 }
 
+export const ProductsContext = createContext(defaultProductsValue);
+
 export const ProductsProvider = ({children}) => {
     const [state, dispatch] = useReducer(ProductsReducer, defaultProductsValue);
     const {products, isCartDropdownOpen, cartProducts, cartProductsAmount, totalProductsCost} = state;
     
-    /* const [products, setProducts] = useState([]);
-    const [isCartDropdownOpen, setCartDropdownOpen] = useState(false);
-    const [cartProducts, setCartProducts] = useState([]);
-    const [cartProductsAmount, setCartProductsAmount] = useState(0); */
+    const fetchProducts = () => {
+        fetchFromServer('http://localhost:5000/categories', setProductsDispatch);
+    }
 
     const setProductsDispatch = (products) => {
         dispatch(setProductsAction(products));
@@ -153,89 +123,18 @@ export const ProductsProvider = ({children}) => {
         dispatch(updateCartAction(newCartProducts, newCartProductsAmount, newTotalProductsCost));
     }
 
-    /* const addProductToCartDispatch = (product) => {
-        const existProduct = cartProducts.find(curProduct => curProduct.id === product.id);
-        if(existProduct) {
-            dispatch(increaseCartProductAmountAction(product.id));
-        } else {
-            dispatch(addProductToCartAction(product));
-        }
-    }
-
-    const increaseProductAmountDispatch = (productId) => {
-        dispatch(increaseCartProductAmountAction(productId));
-    }
-
-    const decreaseProductAmountDispatch = (productId) => {
-        dispatch(decreaseCartProductAmountAction(productId));
-    }
-
-    const deleteProductDispatch = (productId) => {
-        dispatch(deleteProductAction(productId));
-    } */
-    
-
     const value = {
         products, 
         isCartDropdownOpen, 
-        //setCartDropdownOpen, 
-        cartProducts, 
+        cartProducts,
+        cartProductsAmount, 
         totalProductsCost,
         addProductToCartDispatch, 
-        cartProductsAmount,
         increaseProductAmountDispatch,
         decreaseProductAmountDispatch,
         deleteProductDispatch,
-        /* changeCartProductAmount,
-        deleteProduct */
         toggleCartDropdownDispatch
     };
-
-    /* const fetchProducts = () => {
-        fetchFromServer('http://localhost:5000/categories', setProducts);
-    } */
-
-    
-
-    
-    const fetchProducts = () => {
-        fetchFromServer('http://localhost:5000/categories', setProductsDispatch);
-    }
-
-    /* function addProductToCart(product) {
-        const existProduct = cartProducts.find(curProduct => curProduct.id === product.id);
-        if(existProduct) {
-            changeCartProductAmount(existProduct.id, INCREMENTING_ITEM);
-        } else {
-            setCartProducts([...cartProducts, {...product, amount: 1}]);
-        }
-    } */
-
-    /* function changeCartProductAmount(productId, typeChanging) {
-        setCartProducts(cartProducts.reduce((result, curProduct) => {
-            if(productId === curProduct.id) {
-                if(typeChanging === INCREMENTING_ITEM)
-                    return [...result, {...curProduct, amount: curProduct.amount + 1}]
-                else if(typeChanging === DECREMENTING_ITEM)
-                    if(curProduct.amount - 1 > 0)
-                        return [...result, {...curProduct, amount: curProduct.amount - 1}]
-                    else 
-                        return [...result];
-            }
-
-            return [...result, curProduct];
-        }, []));
-    } */
-
-    /* function deleteProduct(product) {
-        setCartProducts(cartProducts.filter((curProduct) => {
-            return curProduct.id !== product.id;
-        }));
-    } */
-
-    /* function countProductsAmount() {
-        setCartProductsAmount(cartProducts.reduce((sum, curProduct) => sum + curProduct.amount , 0));
-    } */
 
     useEffect(fetchProducts, []);
 

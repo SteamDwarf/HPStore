@@ -4,14 +4,11 @@ import Button from '../../btns/button/button.component';
 import './purchases-total.style.scss';
 
 const PurchasesTotal = () => {
-    const {cartProducts, totalProductsCost} = useContext(ProductsContext);
+    const {totalProductsCost} = useContext(ProductsContext);
 
     return (
         <div className="purchases-total">
             <div className="purchases-total_text">
-                {/* Общая сумма: {cartProducts.reduce((sum, curProduct) => {
-                    return sum + curProduct.price * curProduct.amount
-                }, 0)} P */}
                 Общая сумма: {totalProductsCost} P
             </div>
             <Button>Подтвердить покупку</Button>
