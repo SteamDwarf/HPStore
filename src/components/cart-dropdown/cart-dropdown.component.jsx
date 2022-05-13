@@ -1,11 +1,11 @@
-import { useContext } from 'react';
-import { ProductsContext } from '../../contexts/products.context';
+import { useSelector } from 'react-redux/es/exports';
 import CartItem from '../cart-item/cart-item.component';
 import LinkedButton from '../btns/linked-button/linked-button.component';
 import './cart-dropdown.style.scss';
+import { getCartProps } from '../../redux/products/products.selectors';
 
 const CartDropdown = () => {
-    const {cartProducts} = useContext(ProductsContext);
+    const {cartProducts} = useSelector(getCartProps)   
 
     if(cartProducts.length > 0) {
         return (

@@ -1,14 +1,13 @@
-import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 import Container from "../../components/container/container.component";
 import PageContainer from "../../components/page-container/page-container.component";
-import ProductItem from "../../components/product-item/product-item.component";
-import { ProductsContext } from "../../contexts/products.context";
 import { PRODUCT_ITEM } from "../../utils/types";
+import { getProducts } from "../../redux/products/products.selectors";
 
 const Category = () => {
     const categoryName = useParams().name;
-    const {products} = useContext(ProductsContext);
+    const products = useSelector(getProducts);
     const category = products.find(item => item.name === categoryName);
 
     return (

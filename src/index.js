@@ -4,18 +4,16 @@ import './index.scss';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
-import { UserProvider } from './contexts/userContext.context';
-import { ProductsProvider } from './contexts/products.context';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ProductsProvider>  
-        <UserProvider>
-          <App />
-        </UserProvider>
-      </ProductsProvider>
+        <Provider store={store}>
+            <App />
+        </Provider>
     </BrowserRouter>
   </React.StrictMode>
 );

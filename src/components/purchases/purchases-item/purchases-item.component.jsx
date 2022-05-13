@@ -1,22 +1,24 @@
-import { useContext } from 'react';
-import { ProductsContext } from '../../../contexts/products.context';
-import { DECREMENTING_ITEM, INCREMENTING_ITEM } from '../../../utils/types';
+import { useDispatch, useSelector } from 'react-redux/es/exports';
+import { getCartProps } from '../../../redux/products/products.selectors';
 import './purchases-item.style.scss';
+import { decrementProductAmountDispatch, deleteProductDispatch, incrementProductAmountDispatch } from '../../../redux/products/products.utils';
+import { updateCartAction } from '../../../redux/products/products.actions';
 
 const PurchasesItem = ({item}) => {
-    const {increaseProductAmountDispatch,
-            decreaseProductAmountDispatch,
-            deleteProductDispatch
-        } = useContext(ProductsContext);
+    const cartProps = useSelector(getCartProps);
+    const dispatch = useDispatch();
 
     const decrementProductAmount = () => {
-        decreaseProductAmountDispatch(item);
+        const newCartProps = decrementProductAmountDispatch({...cartProps, product: item});
+        dispatch(updateCartAction(newCartProps));
     }
     const incrementProductAmount = () => {
-        increaseProductAmountDispatch(item);
+        const newCartProps = incrementProductAmountDispatch({...cartProps, product: item});
+        dispatch(updateCartAction(newCartProps));
     }
     const deleteProductHandler = () => {
-        deleteProductDispatch(item);
+        const newCartProps = deleteProductDispatch({...cartProps, product: item});
+        dispatch(updateCartAction(newCartProps));
     }
 
     return (

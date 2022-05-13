@@ -1,18 +1,20 @@
-import { useContext } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {Link} from 'react-router-dom';
 import {ReactComponent as Logo} from '../../assets/logo/golden_harry_magic_movie_potter_snitch_icon_183153.svg';
-import { ProductsContext } from '../../contexts/products.context';
-import { UserContext } from '../../contexts/userContext.context';
+import { getCartDropdownState } from '../../redux/products/products.selectors';
 import CartBtn from '../btns/cart-btn/cart-btn.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import './header.style.scss';
+import { setUserAction } from '../../redux/user/user.actions';
+import { getUser } from '../../redux/user/user.selectors';
 
 const Header = () => {
-    const {user, setUser} = useContext(UserContext);
-    const {isCartDropdownOpen} = useContext(ProductsContext);
+    const dispatch = useDispatch();
+    const user = useSelector(getUser);
+    const isCartDropdownOpen = useSelector(getCartDropdownState);
 
     const signOut = () => {
-        setUser(null);
+        dispatch(setUserAction(null));
     }
 
     return (
@@ -22,7 +24,6 @@ const Header = () => {
                     <Logo className='header_logo' />
                 </Link>
             </div>
-            {/* <h1 className='header_title'>Harry Potter Store</h1> */}
             <div className='header_links-container'>
                 <Link className='header_link' to='/categories'>ТОВАРЫ</Link>
                 {

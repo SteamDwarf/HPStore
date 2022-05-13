@@ -1,9 +1,11 @@
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useState } from "react";
 import LabeledInput from "../../inputs/labeled_input/labeled_input.component";
 import { signIn } from "../../../utils/server/authentification/sign-in";
 import Form from "../form/form.component";
 import './sign_in_form.style.scss';
-import { UserContext } from "../../../contexts/userContext.context";
+import { useDispatch } from "react-redux/es/exports";
+import { setUserAction } from "../../../redux/user/user.actions";
+import { useNavigate } from "react-router";
 
 const defaultSignInData = {
     email: '',
@@ -15,7 +17,9 @@ const SignInForm = () => {
     const {email, password} = signInData;
     const [signInError, setSignInError] = useState('');
     const [isFetching, setIsFetching] = useState(false);
-    const {setUser} = useContext(UserContext);
+    const [successMessage, setSuccessMessage] = useState('');
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const onChangeHandler = (event) => {
         setSignInData({...signInData, [event.target.name]: event.target.value})
@@ -24,15 +28,17 @@ const SignInForm = () => {
     const onSubmit = (event) => {
         event.preventDefault();
         setSignInError('');
+        setSuccessMessage('');
 
         signIn(email, password, setSignInError, setIsFetching, successFetching);
     }
 
     function successFetching(userData) {
-        setUser(userData);
+        dispatch(setUserAction(userData));
         clearForm();
         setIsFetching(false);
-        setSignInError('Вы успешно вошли в свой аккаунт');
+        setSuccessMessage('Вы успешно вошли в свой аккаунт');
+        setTimeout(() => navigate(-1), 180);
     }
 
     function clearForm() {
@@ -72,6 +78,7 @@ const SignInForm = () => {
                 }
                 isFetching={isFetching}
                 errorStatus={signInError}
+                successStatus={successMessage}
                 btnText='Войти'
             />
         </div>

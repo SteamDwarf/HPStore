@@ -1,10 +1,10 @@
-import { useContext } from "react";
-import { ProductsContext } from "../../../contexts/products.context";
+import { useSelector } from "react-redux/es/exports";
 import Button from '../../btns/button/button.component';
 import './purchases-total.style.scss';
+import { getCartProps } from "../../../redux/products/products.selectors";
 
 const PurchasesTotal = () => {
-    const {totalProductsCost} = useContext(ProductsContext);
+    const {totalProductsCost} = useSelector(getCartProps)
 
     return (
         <div className="purchases-total">

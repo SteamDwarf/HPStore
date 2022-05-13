@@ -1,14 +1,18 @@
-import { useContext } from 'react';
-import { ProductsContext } from '../../contexts/products.context';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateCartAction } from '../../redux/products/products.actions';
+import { getCartProps } from '../../redux/products/products.selectors';
+import { incrementProductAmountDispatch } from '../../redux/products/products.utils';
 import AddToCartBtn from '../btns/add-to-cart-btn/add-to-cart-btn.component';
 import './product-item.style.scss';
 
 const ProductItem = ({productItem}) => {
     const {name, title, price, imageSrc} = productItem;
-    const {addProductToCartDispatch} = useContext(ProductsContext);
+    const cartProps = useSelector(getCartProps);
+    const dispatch = useDispatch();
 
     const addProductToCartHandler = () => {
-        addProductToCartDispatch(productItem);
+        const newCartProps = incrementProductAmountDispatch({...cartProps, product: productItem});
+        dispatch(updateCartAction(newCartProps));
     }
 
     return (

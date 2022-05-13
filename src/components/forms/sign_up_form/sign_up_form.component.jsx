@@ -1,9 +1,11 @@
-import { Fragment, useContext, useState } from "react";
-import { UserContext } from "../../../contexts/userContext.context";
+import { Fragment, useState } from "react";
 import { signUp } from "../../../utils/server/authentification/sign-up";
 import Form from "../form/form.component";
 import LabeledInput from "../../inputs/labeled_input/labeled_input.component";
 import './sign_up_form.style.scss';
+import { useDispatch } from "react-redux";
+import { setUserAction } from "../../../redux/user/user.actions";
+import { useNavigate } from "react-router";
 
 const defaultSignUpData = {
     email: '',
@@ -16,7 +18,9 @@ const SignUpForm = () => {
     const {email, password, repeatedPassword} = signUpData;
     const [signUpError, setSignUpError] = useState('');
     const [isFetching, setIsFetching] = useState(false);
-    const {setUser} = useContext(UserContext);
+    const [successMessage, setSuccessMessage] = useState('');
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const onChangeHandler = (event) => {
         setSignUpData({...signUpData, [event.target.name]: event.target.value})
@@ -25,6 +29,7 @@ const SignUpForm = () => {
     const onSubmit = async (event) => {
         event.preventDefault();
         setSignUpError('');
+        setSuccessMessage('');
 
         if(password !== repeatedPassword){
             setSignUpError('Пароли не совпадают');
@@ -35,10 +40,11 @@ const SignUpForm = () => {
     }
 
     function successFetching(userData) {
-        setUser(userData);
+        dispatch(setUserAction(userData));
         clearForm();
         setIsFetching(false);
-        setSignUpError('Пользователь успешно зарегистрирован');
+        setSuccessMessage('Пользователь успешно зарегистрирован');
+        setTimeout(() => navigate(-1), 180);
     }
 
     function clearForm() {
@@ -89,6 +95,7 @@ const SignUpForm = () => {
                 }
                 isFetching={isFetching}
                 errorStatus={signUpError}
+                successStatus={successMessage}
                 btnText='Зарегистрироваться'
             />
         </div>
