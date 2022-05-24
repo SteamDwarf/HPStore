@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { updateCartAction } from '../../redux/products/products.actions';
+import { incrementCartProductAction} from '../../redux/products/products.actions';
 import { getCartProps } from '../../redux/products/products.selectors';
-import { incrementProductAmountDispatch } from '../../redux/products/products.utils';
 import AddToCartBtn from '../btns/add-to-cart-btn/add-to-cart-btn.component';
 import './product-item.style.scss';
 
@@ -11,8 +10,7 @@ const ProductItem = ({productItem}) => {
     const dispatch = useDispatch();
 
     const addProductToCartHandler = () => {
-        const newCartProps = incrementProductAmountDispatch({...cartProps, product: productItem});
-        dispatch(updateCartAction(newCartProps));
+        dispatch(incrementCartProductAction(cartProps, productItem));
     }
 
     return (

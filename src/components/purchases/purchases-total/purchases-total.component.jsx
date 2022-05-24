@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux/es/exports";
 import Button from '../../btns/button/button.component';
 import './purchases-total.style.scss';
-import { getCartProps } from "../../../redux/products/products.selectors";
+import { getTotalProductsCost } from "../../../redux/products/products.selectors";
 
 const PurchasesTotal = () => {
-    const {totalProductsCost} = useSelector(getCartProps)
+    const totalProductsCost = useSelector(getTotalProductsCost)
 
     return (
         <div className="purchases-total">

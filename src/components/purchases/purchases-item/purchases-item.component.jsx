@@ -1,24 +1,20 @@
 import { useDispatch, useSelector } from 'react-redux/es/exports';
 import { getCartProps } from '../../../redux/products/products.selectors';
 import './purchases-item.style.scss';
-import { decrementProductAmountDispatch, deleteProductDispatch, incrementProductAmountDispatch } from '../../../redux/products/products.utils';
-import { updateCartAction } from '../../../redux/products/products.actions';
+import { decrementCartProductAction, deleteCartProductAction, incrementCartProductAction} from '../../../redux/products/products.actions';
 
 const PurchasesItem = ({item}) => {
     const cartProps = useSelector(getCartProps);
     const dispatch = useDispatch();
 
     const decrementProductAmount = () => {
-        const newCartProps = decrementProductAmountDispatch({...cartProps, product: item});
-        dispatch(updateCartAction(newCartProps));
+        dispatch(decrementCartProductAction(cartProps, item));
     }
     const incrementProductAmount = () => {
-        const newCartProps = incrementProductAmountDispatch({...cartProps, product: item});
-        dispatch(updateCartAction(newCartProps));
+        dispatch(incrementCartProductAction(cartProps, item));
     }
     const deleteProductHandler = () => {
-        const newCartProps = deleteProductDispatch({...cartProps, product: item});
-        dispatch(updateCartAction(newCartProps));
+        dispatch(deleteCartProductAction(cartProps, item));
     }
 
     return (
