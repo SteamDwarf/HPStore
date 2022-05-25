@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux/es/exports';
-import { getCartProps } from '../../../redux/products/products.selectors';
+import { getCartProps } from '../../../redux/cart/cart.selector';
 import PurchasesItem from '../purchases-item/purchases-item.component';
 import './purchases-body.style.scss';
 

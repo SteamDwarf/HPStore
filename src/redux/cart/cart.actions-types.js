@@ -1,0 +1,4 @@
+export const CartActions = {
+    TOGGLE_CART_DROPDOWN: "TOGGLE_CART_DROPDOWN",
+    UPDATE_CART: "UPDATE_CART",
+}

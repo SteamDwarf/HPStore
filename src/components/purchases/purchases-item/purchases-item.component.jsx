@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux/es/exports';
-import { getCartProps } from '../../../redux/products/products.selectors';
+import { getCartProps } from '../../../redux/cart/cart.selector';
 import './purchases-item.style.scss';
-import { decrementCartProductAction, deleteCartProductAction, incrementCartProductAction} from '../../../redux/products/products.actions';
+import { incrementCartProductAction, decrementCartProductAction, deleteCartProductAction } from '../../../redux/cart/cart.actions';
 
 const PurchasesItem = ({item}) => {
     const cartProps = useSelector(getCartProps);

@@ -1,5 +1,3 @@
 export const ProductsActions = {
     SET_PRODUCTS: "SET_PRODUCTS",
-    TOGGLE_CART_DROPDOWN: "TOGGLE_CART_DROPDOWN",
-    UPDATE_CART: "UPDATE_CART",
 }

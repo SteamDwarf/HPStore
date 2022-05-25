@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux/es/exports";
 import Button from '../../btns/button/button.component';
 import './purchases-total.style.scss';
-import { getTotalProductsCost } from "../../../redux/products/products.selectors";
+import { getTotalProductsCost } from "../../../redux/cart/cart.selector";
 
 const PurchasesTotal = () => {
     const totalProductsCost = useSelector(getTotalProductsCost)

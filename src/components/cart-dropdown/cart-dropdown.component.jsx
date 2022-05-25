@@ -2,10 +2,11 @@ import { useSelector } from 'react-redux/es/exports';
 import CartItem from '../cart-item/cart-item.component';
 import LinkedButton from '../btns/linked-button/linked-button.component';
 import './cart-dropdown.style.scss';
-import { getCartProps } from '../../redux/products/products.selectors';
+import { getCartProducts } from '../../redux/cart/cart.selector';
+
 
 const CartDropdown = () => {
-    const {cartProducts} = useSelector(getCartProps)   
+    const cartProducts = useSelector(getCartProducts)   
 
     if(cartProducts.length > 0) {
         return (

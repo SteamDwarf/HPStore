@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { incrementCartProductAction} from '../../redux/products/products.actions';
-import { getCartProps } from '../../redux/products/products.selectors';
+import { incrementCartProductAction } from '../../redux/cart/cart.actions';
+import { getCartProps } from '../../redux/cart/cart.selector';
 import AddToCartBtn from '../btns/add-to-cart-btn/add-to-cart-btn.component';
 import './product-item.style.scss';
 
