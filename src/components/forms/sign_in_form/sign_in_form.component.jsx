@@ -1,11 +1,11 @@
 import { Fragment, useState } from "react";
 import LabeledInput from "../../inputs/labeled_input/labeled_input.component";
-import { signIn } from "../../../utils/server/authentification/sign-in";
+import { signIn } from "../../../redux/user/user.actions";
 import Form from "../form/form.component";
 import './sign_in_form.style.scss';
-import { useDispatch } from "react-redux/es/exports";
-import { setUserAction } from "../../../redux/user/user.actions";
+import { useDispatch, useSelector } from "react-redux/es/exports";
 import { useNavigate } from "react-router";
+import { getSignInError, getSignInProcessing } from "../../../redux/user/user.selectors";
 
 const defaultSignInData = {
     email: '',
@@ -15,9 +15,10 @@ const defaultSignInData = {
 const SignInForm = () => {
     const [signInData, setSignInData] = useState(defaultSignInData);
     const {email, password} = signInData;
-    const [signInError, setSignInError] = useState('');
-    const [isFetching, setIsFetching] = useState(false);
-    const [successMessage, setSuccessMessage] = useState('');
+
+    const signInError = useSelector(getSignInError);
+    const signInProcessing = useSelector(getSignInProcessing);
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -27,18 +28,13 @@ const SignInForm = () => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        setSignInError('');
-        setSuccessMessage('');
 
-        signIn(email, password, setSignInError, setIsFetching, successFetching);
+        dispatch(signIn(email, password, successAuth));
     }
 
-    function successFetching(userData) {
-        dispatch(setUserAction(userData));
+    function successAuth() {
         clearForm();
-        setIsFetching(false);
-        setSuccessMessage('Вы успешно вошли в свой аккаунт');
-        setTimeout(() => navigate(-1), 180);
+        navigate(-1);
     }
 
     function clearForm() {
@@ -76,9 +72,8 @@ const SignInForm = () => {
                         </div>
                     </Fragment>
                 }
-                isFetching={isFetching}
+                isFetching={signInProcessing}
                 errorStatus={signInError}
-                successStatus={successMessage}
                 btnText='Войти'
             />
         </div>

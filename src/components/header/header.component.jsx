@@ -5,7 +5,7 @@ import { getCartDropdownState } from '../../redux/cart/cart.selector';
 import CartBtn from '../btns/cart-btn/cart-btn.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import './header.style.scss';
-import { setUserAction } from '../../redux/user/user.actions';
+import { setUserAction, signOutAction } from '../../redux/user/user.actions';
 import { getUser } from '../../redux/user/user.selectors';
 
 const Header = () => {
@@ -14,7 +14,8 @@ const Header = () => {
     const isCartDropdownOpen = useSelector(getCartDropdownState);
 
     const signOut = () => {
-        dispatch(setUserAction(null));
+        //dispatch(setUserAction(null));
+        dispatch(signOutAction());
     }
 
     return (

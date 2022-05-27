@@ -2,30 +2,32 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Container from "../../components/container/container.component";
 import PageContainer from "../../components/page-container/page-container.component";
-import { setProductsAction } from "../../redux/products/products.actions";
-import { CATEGORY_ITEM } from "../../utils/types";
-import { fetchFromServer } from "../../utils/server/fetches/serverFetches";
+import { fetchCategories } from '../../redux/products/products.actions';
+import { CATEGORY_ITEM, MESSAGE_TYPES } from "../../utils/types";
 import './products.style.scss';
-import { getProducts } from "../../redux/products/products.selectors";
+import { getError, getIsFetching, getCategories } from "../../redux/products/products.selectors";
+import ErrorMessage from "../../components/error_message/error_message.component";
+import Loader from "../../components/loader/loader.component";
+import ContainerMessage from "../../components/container-message/container-message.component";
 
 
 const Products = () => {
     const dispatch = useDispatch();
-    const products = useSelector(getProducts);
+    const categories = useSelector(getCategories);
+    const isFetching = useSelector(getIsFetching);
+    const error = useSelector(getError);
 
-    const setProductsHandler = (products) => {
-        dispatch(setProductsAction(products));
-    }
-    
-    const fetchProducts = () => {
-        fetchFromServer('http://localhost:5000/categories', setProductsHandler);
-    }
-
-    useEffect(fetchProducts, []);
+    useEffect(() =>  dispatch(fetchCategories()), []);
 
     return (
         <PageContainer title='Категории'>
-            <Container itemsType={CATEGORY_ITEM} items={products}/>
+            {isFetching ? <Loader /> : null}
+            {
+                error 
+                ? <ContainerMessage text={'Ошибка сервера. Попробуйте позже'} type={MESSAGE_TYPES.ERROR_MESSAGE}/> 
+                : null
+            }
+            {categories.length > 0 ? <Container itemsType={CATEGORY_ITEM} items={categories}/> : null} 
         </PageContainer>
     );
 }

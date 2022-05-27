@@ -1,0 +1,12 @@
+@import '../../scss/vars.scss';
+
+.container_message-block {
+    padding: 15px 20px;
+    border: 2px solid $dayBorderColor;
+    border-radius: 10px;
+    background-color: $panelColor;
+}
+
+.error-message {
+    color: $redColor;
+}

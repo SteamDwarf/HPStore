@@ -1,11 +1,12 @@
 import { Fragment, useState } from "react";
-import { signUp } from "../../../utils/server/authentification/sign-up";
+import { signUp } from "../../../redux/user/user.actions";
 import Form from "../form/form.component";
 import LabeledInput from "../../inputs/labeled_input/labeled_input.component";
 import './sign_up_form.style.scss';
-import { useDispatch } from "react-redux";
-import { setUserAction } from "../../../redux/user/user.actions";
+import { useDispatch, useSelector } from "react-redux";
+import { signUpErrorAction } from "../../../redux/user/user.actions";
 import { useNavigate } from "react-router";
+import { getSignUpError, getSignUpProcessing } from "../../../redux/user/user.selectors";
 
 const defaultSignUpData = {
     email: '',
@@ -16,9 +17,10 @@ const defaultSignUpData = {
 const SignUpForm = () => {
     const [signUpData, setSignUpData] = useState(defaultSignUpData);
     const {email, password, repeatedPassword} = signUpData;
-    const [signUpError, setSignUpError] = useState('');
-    const [isFetching, setIsFetching] = useState(false);
-    const [successMessage, setSuccessMessage] = useState('');
+
+    const signUpProcessing = useSelector(getSignUpProcessing);
+    const signUpError = useSelector(getSignUpError);
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -28,23 +30,18 @@ const SignUpForm = () => {
 
     const onSubmit = async (event) => {
         event.preventDefault();
-        setSignUpError('');
-        setSuccessMessage('');
 
         if(password !== repeatedPassword){
-            setSignUpError('Пароли не совпадают');
+            dispatch(signUpErrorAction('Пароли не совпадают'));
             return;
         }
 
-        signUp(email, password, setSignUpError, setIsFetching, successFetching);
+        dispatch(signUp(email, password, successFunction));
     }
 
-    function successFetching(userData) {
-        dispatch(setUserAction(userData));
+    function successFunction() {
         clearForm();
-        setIsFetching(false);
-        setSuccessMessage('Пользователь успешно зарегистрирован');
-        setTimeout(() => navigate(-1), 180);
+        navigate(-1)
     }
 
     function clearForm() {
@@ -93,9 +90,8 @@ const SignUpForm = () => {
                         </div>
                     </Fragment>
                 }
-                isFetching={isFetching}
+                isFetching={signUpProcessing}
                 errorStatus={signUpError}
-                successStatus={successMessage}
                 btnText='Зарегистрироваться'
             />
         </div>
