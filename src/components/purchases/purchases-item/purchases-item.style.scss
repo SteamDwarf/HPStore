@@ -6,7 +6,7 @@
     align-items: center;
     height: 200px;
     padding: 10px 0px;
-    border-bottom: 2px solid $dayBorderColor;
+    border-bottom: 2px solid;
     overflow: hidden;
 
     & span {
@@ -31,7 +31,22 @@
     &_interactive {
         font-weight: bold;
         font-size: 2em !important;
-        color: $dayTitleColor;
         cursor: pointer;
+    }
+}
+
+.light .purchases-item {
+    border-color:  $dayBorderColor;
+
+    &_interactive {
+        color: $dayTitleColor;
+    }
+}
+
+.dark .purchases-item {
+    border-color:  $nightBorderColor;
+
+    &_interactive {
+        color: $nightTitleColor;
     }
 }

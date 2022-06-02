@@ -7,7 +7,7 @@
     justify-content: space-between;
     width: 300px;
     height: 300px;
-    border: 3px solid $dayBorderColor;
+    border: 3px solid;
     border-radius: 10px;
     background-size: 100% 100%;
     cursor: pointer;
@@ -25,9 +25,8 @@
 
     &_date-info {
         padding: 3px 5px;
-        border-bottom: 2px solid $dayBorderColor;
+        border-bottom: 2px solid;
         border-radius: 10px 10px 0 0;
-        color: $dayTextColor;
         text-align: right;
         background-color: $panelColor;
         transition: background-color 0.5s;
@@ -36,7 +35,7 @@
     &_info-block {
         max-height: 150px;
         padding: 0 5px;
-        border-top: 2px solid $dayBorderColor;
+        border-top: 2px solid;
         border-radius: 0 0 7px 7px ;
         background-color: $panelColor;
         transition: background-color 0.5s;
@@ -45,6 +44,39 @@
     &_title {
         padding: 10px 0;
         text-align: center;
+    }
+}
+
+.light .news-item {
+    border-color: $dayBorderColor;
+
+    &_date-info {
+        border-color: $dayBorderColor;
+        color: $dayTextColor;
+    }
+
+    &_info-block {
+        border-color: $dayBorderColor;
+    }
+
+    &_title {
         color: $dayTitleColor;
+    }
+}
+
+.dark .news-item {
+    border-color: $nightBorderColor;
+
+    &_date-info {
+        border-color: $nightBorderColor;
+        color: $nightTextColor;
+    }
+
+    &_info-block {
+        border-color: $nightBorderColor;
+    }
+
+    &_title {
+        color: $nightTitleColor;
     }
 }

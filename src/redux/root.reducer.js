@@ -5,6 +5,7 @@ import { persistReducer } from "redux-persist";
 import { cartReducer } from "./cart/cart.reducer";
 import storage from "redux-persist/lib/storage";
 import newsReducer from "./news/news.reducer";
+import { themeReducer } from "./themes/themes.reducer";
 
 const userPersistConfig = {
     key: 'user',
@@ -18,9 +19,15 @@ const cartPersistConfig = {
     whitelist: ['cartProducts', 'cartProductsAmount', 'totalProductsCost']
 }
 
+const themePersistConfig = {
+    key: 'theme',
+    storage
+}
+
 export const rootReducer = combineReducers({
     user: persistReducer(userPersistConfig, userReducer),
     products: productsReducer,
     cart: persistReducer(cartPersistConfig, cartReducer),
     news: newsReducer,
+    theme: persistReducer(themePersistConfig, themeReducer)
 });

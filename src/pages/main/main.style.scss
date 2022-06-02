@@ -1,5 +1,13 @@
 .container {
     min-height: 100vh;
     height: 100%;
-    background: fixed no-repeat center/cover url("../../assets/background/626b97c093fcf.png");
+    background: fixed no-repeat center/cover;
+}
+
+.light.container {
+    background-image: url("../../assets/background/626b97c093fcf.png");
+}
+
+.dark.container {
+    background-image: url("../../assets/background/626b9729590b4.png");
 }

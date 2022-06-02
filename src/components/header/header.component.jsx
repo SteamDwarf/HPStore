@@ -5,17 +5,24 @@ import { getCartDropdownState } from '../../redux/cart/cart.selector';
 import CartBtn from '../btns/cart-btn/cart-btn.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import './header.style.scss';
-import { setUserAction, signOutAction } from '../../redux/user/user.actions';
+import { signOutAction } from '../../redux/user/user.actions';
 import { getUser } from '../../redux/user/user.selectors';
+import { getTheme } from '../../redux/themes/themes.selectors';
+import { setThemeAction } from '../../redux/themes/themes.actions';
+import Button from '../btns/button/button.component';
 
 const Header = () => {
     const dispatch = useDispatch();
     const user = useSelector(getUser);
     const isCartDropdownOpen = useSelector(getCartDropdownState);
+    const theme = useSelector(getTheme);
 
     const signOut = () => {
-        //dispatch(setUserAction(null));
         dispatch(signOutAction());
+    }
+
+    const changeTheme = () => {
+        theme === 'light' ? dispatch(setThemeAction('dark')) : dispatch(setThemeAction('light'))
     }
 
     return (
@@ -38,6 +45,7 @@ const Header = () => {
                     ? <CartDropdown />
                     : null
                 }
+                <Button onClick={changeTheme}>Смена темы</Button>
             </div>
         </header>
     );

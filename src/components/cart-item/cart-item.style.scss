@@ -22,11 +22,23 @@
 
     &_title {
         margin-bottom: 10px;
-        border-bottom: 2px solid $dayBorderColor;
+        border-bottom: 2px solid;
     }
 
     &_price {
         font-weight: bold;
         font-size: 18px;
+    }
+}
+
+.light .cart-item {
+    &_title {
+        border-color: $dayBorderColor;
+    }
+}
+
+.dark .cart-item {
+    &_title {
+        border-color: $nightBorderColor;
     }
 }

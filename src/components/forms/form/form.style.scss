@@ -8,7 +8,6 @@
     &_title {
         margin-bottom: 25px;
         font-family: 'Harry Potter';
-        color: $dayTitleColor;
     }
 
     &_data {
@@ -29,4 +28,12 @@
     & .labeled-input_block {
         margin-bottom: 15px;
     }
+}
+
+.light .form_title {
+    color: $dayTitleColor;
+}
+
+.dark .form_title {
+    color: $nightTitleColor;
 }

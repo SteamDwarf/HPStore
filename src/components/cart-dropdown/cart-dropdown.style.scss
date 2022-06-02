@@ -11,7 +11,7 @@
     z-index: 3;
     width: 350px;
     height: 500px;
-    border: 2px solid $dayBorderColor;
+    border: 2px solid;
     border-radius: 10px;
     background-color: $panelColorOpaque;
 
@@ -29,4 +29,12 @@
 .empty-cart-title {
     margin-top: 60%;
     text-align: center;
+}
+
+.light .cart-dropdown {
+    border-color: $dayBorderColor;
+}
+
+.dark .cart-dropdown {
+    border-color: $nightBorderColor;
 }

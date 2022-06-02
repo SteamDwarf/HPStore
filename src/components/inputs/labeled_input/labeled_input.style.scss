@@ -2,7 +2,6 @@
 
 @mixin shrinkedLabel {
     top: 10%;
-    color: $dayTextColor;
     font-size: 14px;
 }
 
@@ -17,7 +16,7 @@
     width: 200px;
     padding: 5px;
     border: none;
-    border-bottom: 2px solid $dayBorderColor;
+    border-bottom: 2px solid;
     background-color: inherit;
     outline: none;
     z-index: 1;
@@ -39,5 +38,21 @@
 
     &:focus ~ &_label {
         @include shrinkedLabel;
+    }
+}
+
+.light .labeled-input {
+    border-color: $dayBorderColor;
+
+    &_label.shrink {
+        color: $dayTextColor;
+    }
+}
+
+.dark .labeled-input {
+    border-color: $nightBorderColor;
+
+    &_label.shrink {
+        color: $nightTextColor;
     }
 }

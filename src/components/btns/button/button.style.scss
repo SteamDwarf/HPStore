@@ -2,16 +2,29 @@
 
 .btn {
     padding: 10px;
-    border: 2px solid $dayBorderColor;
+    border: 2px solid;
     border-radius: 5px;
     font-family: 'Fira Sans', sans-serif;
     background-color: inherit;
     outline: none;
     cursor: pointer;
     transition: background-color 0.5s, color 0.5s;
+}
+
+.light .btn {
+    border-color: $dayBorderColor;
 
     &:hover {
         color: #fff;
         background-color: $dayBorderColor;
+    }
+}
+
+.dark .btn {
+    border-color: $nightBorderColor;
+
+    &:hover {
+        color: #fff;
+        background-color: $nightBorderColor;
     }
 }

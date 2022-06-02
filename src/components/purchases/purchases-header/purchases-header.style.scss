@@ -5,16 +5,31 @@
     justify-content: space-around;
     margin-top: 50px;
     padding: 20px 10px;
-    border-top: 2px solid $dayBorderColor;
-    border-bottom: 2px solid $dayBorderColor;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
     background-color: $panelColor;
 
     &_title {
         width: 20.25%;
-        color: $dayTitleColor;
     }
 
     &_title:first-of-type {
         width: 19%;
+    }
+}
+
+.light .purchases-header {
+    border-color: $dayBorderColor;
+
+    &_title {
+        color: $dayTitleColor;
+    }
+}
+
+.dark .purchases-header {
+    border-color: $nightBorderColor;
+
+    &_title {
+        color: $nightTitleColor;
     }
 }
