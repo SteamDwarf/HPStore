@@ -10,6 +10,7 @@ import { getUser } from '../../redux/user/user.selectors';
 import { getTheme } from '../../redux/themes/themes.selectors';
 import { setThemeAction } from '../../redux/themes/themes.actions';
 import Button from '../btns/button/button.component';
+import ThemeButton from '../btns/theme-button/theme-button.component';
 
 const Header = () => {
     const dispatch = useDispatch();
@@ -45,7 +46,7 @@ const Header = () => {
                     ? <CartDropdown />
                     : null
                 }
-                <Button onClick={changeTheme}>Смена темы</Button>
+                <ThemeButton onClick={changeTheme} />
             </div>
         </header>
     );
