@@ -14,7 +14,7 @@ const defaultState = {
 export const cartReducer = (state = defaultState, action) => {
     switch(action.type) {
         case CartActions.TOGGLE_CART_DROPDOWN:
-            return {...state, isCartDropdownOpen: !state.isCartDropdownOpen};
+            return {...state, isCartDropdownOpen: action.payload};
         case CartActions.UPDATE_CART:
             return {...state, ...action.payload}
         case CartActions.CLEAR_CART:

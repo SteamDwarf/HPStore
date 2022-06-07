@@ -1,15 +1,16 @@
 import './cart-btn.style.scss';
 import cartImg from '../../../assets/cart-icon/0205994a7ba1bb2e03648f593d2cdf11-gold-coins-pot.png';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCartProductsAmount } from '../../../redux/cart/cart.selector';
+import { getCartDropdownState, getCartProductsAmount } from '../../../redux/cart/cart.selector';
 import { toggleCartDropdownAction } from '../../../redux/cart/cart.actions';
 
 const CartBtn = () => {
     const dispatch = useDispatch();
     const cartProductsAmount = useSelector(getCartProductsAmount);
+    const isCartDropdownOpen = useSelector(getCartDropdownState);
 
     const toggleCartDropdownHandler = () => {
-        dispatch(toggleCartDropdownAction());
+        dispatch(toggleCartDropdownAction(!isCartDropdownOpen));
     }
 
     return (

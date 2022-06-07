@@ -38,7 +38,7 @@ function deleteProduct(cartProducts, product) {
     });
 }
 
-export const toggleCartDropdownAction = () => ({type: CartActions.TOGGLE_CART_DROPDOWN});
+export const toggleCartDropdownAction = (isOpened) => ({type: CartActions.TOGGLE_CART_DROPDOWN, payload: isOpened});
 const updateCartAction = (cartProducts, cartProductsAmount, totalProductsCost) => {
     return {type: CartActions.UPDATE_CART, 
             payload: {
