@@ -29,3 +29,23 @@ export const getCartProps = createSelector(
         }
     }
 );
+
+export const getConfirmationWait = createSelector(
+    [getCartStore],
+    (cartStore) => cartStore.isConfirmationWait
+);
+
+export const getIsMakingPurchase = createSelector(
+    [getCartStore],
+    (cartStore) => cartStore.isMakingPurchase
+);
+
+export const getMakePurchaseError = createSelector(
+    [getCartStore],
+    (cartStore) => cartStore.makePurchaseError
+);
+
+export const getSuccessMessage = createSelector(
+    [getCartStore],
+    (cartStore) => cartStore.successMessage
+);

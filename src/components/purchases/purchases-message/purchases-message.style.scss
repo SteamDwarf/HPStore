@@ -1,0 +1,23 @@
+@import '../../../scss/vars.scss';
+
+.purchases-link {
+    margin-top: 50px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.light .purchases-link {
+    color: $dayTitleColor;
+}
+
+.dark .purchases-link {
+    color: $nightTitleColor;
+}
+
+.message {
+    &_buttons-block {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 40px;
+    }
+}

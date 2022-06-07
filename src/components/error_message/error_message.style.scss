@@ -3,4 +3,16 @@
 .error-message {
     color: $redColor;
     font-weight: bold;
+
+    &.small {
+        font-size: 12px;
+    }
+
+    &.medium {
+        font-size: 20px;
+    }
+
+    &.large {
+        font-size: 36px;
+    }
 }

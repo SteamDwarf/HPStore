@@ -70,3 +70,29 @@ export const deleteCartProductAction = (cartProps, product) => {
  
     return updateCartAction(newCartProducts, newCartProductsAmount, newTotalProductsCost);
 }
+
+export const clearCartAction = () => ({type: CartActions.CLEAR_CART});
+export const setConfirmationWait = (isConfirmationWait) => ({type: CartActions.SET_CONFIRMATION_WAIT, payload: isConfirmationWait});
+
+export const makePurchaseStartAction = () => ({type: CartActions.MAKE_PURCHASE_START});
+export const makePurchaseErrorAction = (error) => ({type: CartActions.MAKE_PURCHASE_ERROR, payload: error});
+export const makePurchaseSuccessAction = (successMessage) => ({type: CartActions.MAKE_PURCHASE_SUCCESS, payload: successMessage});
+
+export const makePurchase = (user, cartProducts, successFunction) => {
+    return (dispatch) => {
+        dispatch(makePurchaseStartAction());
+
+        fetch(`http://localhost:5000/users?id=${user.id}`)
+        .then(response => response.ok ? response.json() : Promise.reject())
+        .then(data => {
+            dispatch(makePurchaseSuccessAction("Покупка совершена успешно."));
+            setTimeout(() => {
+                dispatch(clearCartAction());
+                successFunction();
+            }, 2000);
+        })
+        .catch(error => {
+            dispatch(makePurchaseErrorAction('Ошибка сервера. Попробуйте позже...'));
+        })
+    }
+}

@@ -3,14 +3,29 @@ import PurchasesHeader from '../../components/purchases/purchases-header/purchas
 import './purchases.style.scss';
 import PurchasesBody from '../../components/purchases/purchases-body/purchases-body.component';
 import PurchasesTotal from '../../components/purchases/purchases-total/purchases-total.component';
+import { useSelector, useDispatch } from 'react-redux';
+import PurchasesMessage from '../../components/purchases/purchases-message/purchases-message.component';
+import { useEffect } from 'react';
+import { getUser } from '../../redux/user/user.selectors';
+import { makePurchaseErrorAction } from '../../redux/cart/cart.actions';
 
 const Purchases = () => {
+    const user = useSelector(getUser);
+    const dispatch = useDispatch()
+
+    const chechSignInUser = () => {
+        if(user)
+            dispatch(makePurchaseErrorAction(''));
+    }
+
+    useEffect(chechSignInUser, []);
 
     return (
-        <PageContainer title='Покупки'>
+        <PageContainer title='Покупки' className='purchases-container'>
             <PurchasesHeader />
             <PurchasesBody />
             <PurchasesTotal />
+            <PurchasesMessage />
         </PageContainer>
     );
 };
