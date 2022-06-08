@@ -1,8 +1,10 @@
+import { parseError } from "../../utils/server/fetches/serverFetches";
 import { UserActions } from "./user.actions-types";
 
 export const setUserAction = (user) => ({type: UserActions.SET_USER, payload: user});
 
 export const signOutAction = () => ({type: UserActions.SIGN_OUT});
+export const clearForms = () => ({type: UserActions.CLEAR_FORMS})
 
 export const signInStartAction = () => ({type: UserActions.SIGN_IN_START});
 export const signInErrorAction = (error) => ({type: UserActions.SIGN_IN_ERROR, payload: error});
@@ -32,9 +34,7 @@ export const signIn = (email, password, successFunction) => {
             dispatch(signInSuccessAction({...data[0], password: ''}));
             successFunction()
         })
-        .catch(() => {
-            dispatch(signInErrorAction('Ошибка сервера при получении пользователя'))
-        })
+        .catch((error) => dispatch(signInErrorAction(parseError(error.message))))
     }
 }
 
@@ -52,9 +52,7 @@ export function signUp(email, password, successFunction) {
             
             dispatch(postNewUser(email, password, successFunction));
         }) 
-        .catch(() => {
-            dispatch(signUpErrorAction('Ошибка сервера при получении пользователя'));
-        })
+        .catch((error) => dispatch(signUpErrorAction(parseError(error.message))))
     }    
 }
 
@@ -72,8 +70,6 @@ const postNewUser = (email, password, successFunction) => {
             dispatch(signUpSuccessAction({...data, password: ''}));
             successFunction();
         })
-        .catch(error => {
-            dispatch(signUpErrorAction('Ошибка сервера при регистрации'));
-        })
+        .catch(error => dispatch(signUpErrorAction(parseError(error.message))))
     }
 }

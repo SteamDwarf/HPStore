@@ -16,6 +16,8 @@ export const userReducer = (state = defaultState, action) => {
     switch(action.type) {
         case UserActions.SIGN_OUT:
             return {...state, user: null}
+        case UserActions.CLEAR_FORMS:
+            return {...state, signInError: '', signUpError: ''}
         case UserActions.SIGN_IN_START:
             return {...state, signInError: '', signInProcessing: true}
         case UserActions.SIGN_IN_ERROR:

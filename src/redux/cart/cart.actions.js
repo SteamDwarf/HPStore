@@ -1,3 +1,4 @@
+import { parseError } from "../../utils/server/fetches/serverFetches";
 import { CartActions } from "./cart.actions-types";
 
 function incrementCartProductAmount(cartProducts, product) {
@@ -91,8 +92,6 @@ export const makePurchase = (user, cartProducts, successFunction) => {
                 successFunction();
             }, 2000);
         })
-        .catch(error => {
-            dispatch(makePurchaseErrorAction('Ошибка сервера. Попробуйте позже...'));
-        })
+        .catch(error => dispatch(makePurchaseErrorAction(parseError(error.message))))
     }
 }

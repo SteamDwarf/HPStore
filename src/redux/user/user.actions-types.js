@@ -2,6 +2,7 @@ export const UserActions = {
     SET_USER: "SET_USER",
     
     SIGN_OUT: "SIGN_OUT",
+    CLEAR_FORMS: "CLEAR_FORMS",
 
     SIGN_IN_START: "SIGN_IN_START",
     SIGN_IN_ERROR: "SIGN_IN_ERROR",

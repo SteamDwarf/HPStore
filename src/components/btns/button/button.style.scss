@@ -6,6 +6,8 @@
     border: 2px solid;
     border-radius: 5px;
     font-family: 'Fira Sans', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
     background-color: inherit;
     outline: none;
     cursor: pointer;
@@ -14,18 +16,20 @@
 
 .light .btn {
     border-color: $dayBorderColor;
+    color: $dayBorderColor;
 
     &:hover {
-        color: #fff;
         background-color: $dayBorderColor;
+        color: #fff;
     }
 }
 
 .dark .btn {
     border-color: $nightBorderColor;
+    color: $nightBorderColor;
 
     &:hover {
-        color: #fff;
         background-color: $nightBorderColor;
+        color: #fff;
     }
 }

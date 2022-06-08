@@ -5,3 +5,9 @@ export const fetchFromServer = (url, setFunction) => {
         .catch(error => console.error(error));
 }
 
+export const parseError = (error) => {
+    if(error === 'Failed to fetch')
+        return 'Ошибка сервера. Попробуйте позже.'
+    else 
+        return 'Ошибка'
+}

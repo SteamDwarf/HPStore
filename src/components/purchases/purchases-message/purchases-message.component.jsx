@@ -44,7 +44,7 @@ const PurchasesMessage = () => {
             <Modal>
                 <ErrorMessage text={makePurchaseError} size='large'/>
                 <div className="message_buttons-block">
-                    <Button onClick={closeErrorMessage}>Ок</Button>
+                    <Button onClick={closeErrorMessage}>ОК</Button>
                 </div>
             </Modal>
         );

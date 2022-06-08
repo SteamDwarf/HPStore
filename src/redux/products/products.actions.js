@@ -1,3 +1,4 @@
+import { parseError } from "../../utils/server/fetches/serverFetches";
 import { ProductsActions } from "./products.actions-types";
 
 export const fetchCategoriesStartAction = () => ({type: ProductsActions.FETCH_CATEGORIES_START});
@@ -11,7 +12,7 @@ export const fetchCategories = (category) => {
         fetch(`http://localhost:5000/categories${category ? `?name=${category}` : ''}`)
             .then(response => response.ok ? response.json() : Promise.reject())
             .then(data => dispatch(fetchCategoriesSuccessAction(data)))
-            .catch(error => dispatch(fetchCategoriesErrorAction('ОШИБКА СЕРВЕРА')));
+            .catch(error => dispatch(fetchCategoriesErrorAction(parseError(error.message))));
     }
 }
 

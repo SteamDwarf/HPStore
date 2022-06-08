@@ -1,3 +1,4 @@
+import { parseError } from "../../utils/server/fetches/serverFetches";
 import { NewsActions } from "./news.actions-types"
 
 export const fetchNewsStartAction = () => ({type: NewsActions.FETCH_NEWS_START});
@@ -11,6 +12,6 @@ export const fetchNews = () => {
         fetch(`http://localhost:5000/news`)
             .then(response => response.ok ? response.json() : Promise.reject())
             .then(data => dispatch(fetchNewsSuccessAction(data)))
-            .catch(error => dispatch(fetchNewsErrorAction('Ошибка сервера. Попробуйте позже.')));
+            .catch(error => dispatch(fetchNewsErrorAction(parseError(error.message))));
     }
 }

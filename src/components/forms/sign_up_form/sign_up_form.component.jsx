@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { signUp } from "../../../redux/user/user.actions";
 import Form from "../form/form.component";
 import LabeledInput from "../../inputs/labeled_input/labeled_input.component";
@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { signUpErrorAction } from "../../../redux/user/user.actions";
 import { useNavigate } from "react-router";
 import { getSignUpError, getSignUpProcessing } from "../../../redux/user/user.selectors";
+import { clearForms } from "../../../redux/user/user.actions";
 
 const defaultSignUpData = {
     email: '',
@@ -47,6 +48,8 @@ const SignUpForm = () => {
     function clearForm() {
         setSignUpData(defaultSignUpData)
     }
+
+    useEffect(() => dispatch(clearForms()),[]);    
 
     return (
         <div className="sign-up-block">

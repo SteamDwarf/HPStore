@@ -12,7 +12,6 @@ const Main = () => {
     const dispatch = useDispatch();
 
     const onClickHandler = (e) => {
-        //console.log(e.target.classList[0].includes('cart'))
         if(!e.target.classList[0].includes('cart') && isCartDropdownOpen)
             dispatch(toggleCartDropdownAction(false))
     }

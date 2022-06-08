@@ -1,11 +1,12 @@
 import { Fragment, useState } from "react";
 import LabeledInput from "../../inputs/labeled_input/labeled_input.component";
-import { signIn } from "../../../redux/user/user.actions";
+import { clearForms, signIn } from "../../../redux/user/user.actions";
 import Form from "../form/form.component";
 import './sign_in_form.style.scss';
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { useNavigate } from "react-router";
 import { getSignInError, getSignInProcessing } from "../../../redux/user/user.selectors";
+import { useEffect } from "react";
 
 const defaultSignInData = {
     email: '',
@@ -40,6 +41,8 @@ const SignInForm = () => {
     function clearForm() {
         setSignInData(defaultSignInData)
     }
+
+    useEffect(() => dispatch(clearForms()),[]);
 
     return (
         <div className="sign-in-block">

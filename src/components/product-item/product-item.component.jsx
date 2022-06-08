@@ -4,6 +4,7 @@ import { getCartProps } from '../../redux/cart/cart.selector';
 import AddToCartBtn from '../btns/add-to-cart-btn/add-to-cart-btn.component';
 import './product-item.style.scss';
 
+
 const ProductItem = ({productItem}) => {
     const {name, title, price, imageSrc} = productItem;
     const cartProps = useSelector(getCartProps);
