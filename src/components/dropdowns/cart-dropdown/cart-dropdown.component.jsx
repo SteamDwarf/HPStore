@@ -15,7 +15,7 @@ const CartDropdown = () => {
                 <div className='cart-dropdown_container'>
                     {cartProducts.map(product => <CartItem key={product.id} product={product}/>)}
                 </div>
-                <LinkedButton url='/purchases' text='Оформить покупку'/>
+                <LinkedButton url='/purchases'>Оформить покупку</LinkedButton>
             </Dropdown>
         );
     } else {

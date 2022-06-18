@@ -6,3 +6,8 @@ export const getTheme = createSelector(
     [getThemeStore],
     (themeStore) => themeStore.theme
 );
+
+export const getBurgerMenuState = createSelector(
+    [getThemeStore],
+    (themeStore) => themeStore.isBurgerMenuOpen
+);

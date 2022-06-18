@@ -1,28 +1,18 @@
 @import '../../../scss/vars.scss';
 
 .cart-dropdown {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    position: absolute;
-    top: 8.5%;
-    right: 0.2%;
-    z-index: 3;
-    width: 350px;
-    height: 500px;
-    border: 2px solid;
-    border-radius: 10px;
-
 
     &_container {
-        width: 100%;
-        height: 80%;
+        width: 350px;
+        height: 500px;
         margin-top: 5px;
         margin-right: 5px;
         overflow-y: auto;
         scrollbar-gutter: stable;
-       /*  scrollbar-color: ; */
+    }
+    
+    &_container + .linked-button {
+        margin-bottom: 15px;
     }
 
     &_container::-webkit-scrollbar {

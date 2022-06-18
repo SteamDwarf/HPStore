@@ -1,0 +1,41 @@
+@import '../../../scss/vars.scss';
+
+.burger-btn_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 80px;
+    cursor: pointer;
+}
+
+.burger-btn,
+.burger-btn::before,
+.burger-btn::after {
+    position: absolute;
+    width: 40px;
+    height: 5px;
+    border-radius: 10px;
+}
+
+.light .burger-btn,
+.light .burger-btn::before,
+.light .burger-btn::after {
+    background-color: $dayTitleColor;
+}
+
+.dark .burger-btn,
+.dark .burger-btn::before,
+.dark .burger-btn::after {
+    background-color: $nightTitleColor;
+}
+
+.burger-btn::before {
+    content: '';
+    margin-top: -10px;
+}
+.burger-btn::after {
+    content: '';
+    margin-top: 10px;
+}

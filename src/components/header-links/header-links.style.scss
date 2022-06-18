@@ -1,0 +1,31 @@
+@import '../../scss/vars.scss';
+
+.header-links_container {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.header_link {
+    padding-bottom: 3px;
+    border-bottom: 2px solid;
+    font-size: 20px;
+    font-weight: bold;
+    font-family:  sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.light .header {
+    &_link {
+        border-color: $dayBorderColor;
+        color: $dayTitleColor;
+    }
+}
+
+.dark .header {
+    &_link {
+        border-color: $nightBorderColor;
+        color: $nightTitleColor;
+    }
+}
