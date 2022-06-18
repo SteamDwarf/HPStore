@@ -8,10 +8,12 @@ import PurchasesMessage from '../../components/purchases/purchases-message/purch
 import { useEffect } from 'react';
 import { getUser } from '../../redux/user/user.selectors';
 import { makePurchaseErrorAction } from '../../redux/cart/cart.actions';
+import useWindowDimension from '../../utils/hooks/useWindowDemension';
 
 const Purchases = () => {
     const user = useSelector(getUser);
     const dispatch = useDispatch()
+    const {width} = useWindowDimension();
 
     const chechSignInUser = () => {
         if(user)
@@ -22,7 +24,7 @@ const Purchases = () => {
 
     return (
         <PageContainer title='Покупки' className='purchases-container'>
-            <PurchasesHeader />
+            {width > 1100 ? <PurchasesHeader /> : null}
             <PurchasesBody />
             <PurchasesTotal />
             <PurchasesMessage />
