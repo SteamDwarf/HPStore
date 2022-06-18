@@ -6,11 +6,24 @@ export const getCategories = createSelector(
     [getProductsStore],
     (productsStore) => productsStore.categories
 );
-export const getIsFetching = createSelector(
+export const getIsFetchingCategories = createSelector(
     [getProductsStore],
-    (productsStore) => productsStore.isFetching
+    (productsStore) => productsStore.isFetchingCategories
 );
-export const getError = createSelector(
+export const getErrorCategories = createSelector(
     [getProductsStore],
-    (productsStore) => productsStore.error
+    (productsStore) => productsStore.errorCategories
+);
+
+export const getProduct = createSelector(
+    [getProductsStore],
+    (productsStore) => productsStore.product
+);
+export const getIsFetchingProduct = createSelector(
+    [getProductsStore],
+    (productsStore) => productsStore.isFetchingProduct
+);
+export const getErrorProduct = createSelector(
+    [getProductsStore],
+    (productsStore) => productsStore.errorProduct
 );

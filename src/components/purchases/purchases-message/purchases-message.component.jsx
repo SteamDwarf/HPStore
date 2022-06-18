@@ -36,7 +36,7 @@ const PurchasesMessage = () => {
     }
 
     const successPurchase = () => {
-        navigate(-1);
+        //navigate(-1);
     }
 
     if(makePurchaseError) {
@@ -62,7 +62,7 @@ const PurchasesMessage = () => {
     if(successMessage) {
         return (
             <Modal>
-                <h2>{successMessage}</h2>
+                <h3>{successMessage}</h3>
             </Modal>
         );
     }
@@ -70,7 +70,7 @@ const PurchasesMessage = () => {
     if(isConfirmationWait) {
         return (
             <Modal>
-                <h2 className="message_title">Вы действительно хотите оформить покупку?</h2>
+                <h3 className="message_title">Вы действительно хотите оформить покупку?</h3>
                 <div className="message_buttons-block">
                     <Button className="message_button" onClick={confirmMakingPurchase}>Подтвердить</Button>
                     <Button className="message_button" onClick={cancelConfirmation}>Отменить</Button>

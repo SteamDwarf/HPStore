@@ -2,7 +2,7 @@ import './container-message.style.scss';
 
 const ContainerMessage = ({text, type}) => {
     return (
-        <h2 className={`container_message-block ${type}`}>{text}</h2>
+        <h3 className={`container_message-block ${type}`}>{text}</h3>
     );
 }
 

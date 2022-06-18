@@ -52,3 +52,15 @@
         color: $nightTextColor;
     }
 }
+
+@media (max-width: 399px) {
+    .category-item {
+        height: 250px;
+    }
+}
+
+@media (max-width: 349px) {
+    .category-item {
+        height: 220px;
+    }
+}

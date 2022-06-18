@@ -57,3 +57,39 @@ h1 {
   font-size: 60px;
   letter-spacing: 4pt;
 }
+
+h2 {
+  font-size: 50px;
+  letter-spacing: 3pt;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+@media (max-width: 499px) {
+  h1 {
+    font-size: 45px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+  h4 {
+    font-size:  16px;
+  }
+}
+
+@media (max-width: 349px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  h4 {
+    font-size: 14px;
+  }
+}

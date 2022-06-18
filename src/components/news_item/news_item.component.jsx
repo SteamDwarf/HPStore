@@ -9,7 +9,7 @@ const NewsItem = ({bitNews}) => {
         }}>
             <div className="news-item_date-info">{date}</div>
             <div className="news-item_info-block">
-                <h3 className="news-item_title">{title}</h3>
+                <h4 className="news-item_title">{title}</h4>
             </div>
         </div>
     );

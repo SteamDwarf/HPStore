@@ -26,7 +26,7 @@ const PurchasesItem = ({item}) => {
                 <span>{item.amount}</span>
                 <span className="purchases-item_amount-btn purchases-item_interactive" onClick={incrementProductAmount}>+</span>
             </span>
-            <span className="purchases-item_price">{item.price}</span>
+            <span className="purchases-item_price">{item.price} &#8381;</span>
             <span className="purchases-item_delete purchases-item_interactive" onClick={deleteProductHandler}>&#10006;</span>
         </div>
     );

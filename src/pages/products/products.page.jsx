@@ -5,14 +5,14 @@ import PageContainer from "../../components/page-container/page-container.compon
 import { fetchCategories } from '../../redux/products/products.actions';
 import { CONTAINER_TYPES } from "../../utils/types";
 import './products.style.scss';
-import { getError, getIsFetching, getCategories } from "../../redux/products/products.selectors";
+import { getErrorCategories, getIsFetchingCategories, getCategories } from "../../redux/products/products.selectors";
 
 
 const Products = () => {
     const dispatch = useDispatch();
     const categories = useSelector(getCategories);
-    const isFetching = useSelector(getIsFetching);
-    const errorProducts = useSelector(getError);
+    const isFetching = useSelector(getIsFetchingCategories);
+    const errorProducts = useSelector(getErrorCategories);
 
     useEffect(() =>  dispatch(fetchCategories()), []);
 

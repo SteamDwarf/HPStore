@@ -33,3 +33,10 @@
         color: #fff;
     }
 }
+
+@media (max-width: 349px) {
+    .btn {
+        /* min-width: 110px; */
+        font-size: 12px;
+    }
+}

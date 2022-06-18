@@ -38,3 +38,11 @@
 .dark .form_title {
     color: $nightTitleColor;
 }
+
+@media (max-width: 449px) {
+    .form {
+        &_data {
+            min-width: 200px;
+        }
+    }
+}

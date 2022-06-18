@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { incrementCartProductAction } from '../../redux/cart/cart.actions';
 import { getCartProps } from '../../redux/cart/cart.selector';
 import AddToCartBtn from '../btns/add-to-cart-btn/add-to-cart-btn.component';
@@ -7,20 +8,14 @@ import './product-item.style.scss';
 
 const ProductItem = ({productItem}) => {
     const {name, title, price, imageSrc} = productItem;
-    const cartProps = useSelector(getCartProps);
-    const dispatch = useDispatch();
-
-    const addProductToCartHandler = () => {
-        dispatch(incrementCartProductAction(cartProps, productItem));
-    }
 
     return (
         <div className='product-item'>
-            <img className='product-item_img' src={imageSrc} alt={name} />
+            <Link to={name} className='product-link'><img className='product-item_img' src={imageSrc} alt={name} /></Link>
             <div className='product-item_data-block'>
-                <h3 className='product-item_title'>{title}</h3>
-                <h2 className='product-item_price'>{price} Р</h2>
-                <AddToCartBtn onClick={addProductToCartHandler}/>
+                <h4 className='product-item_title'>{title}</h4>
+                <h4 className='product-item_price'>{price} Р</h4>
+                <AddToCartBtn className='add-to-cart-btn' productItem={productItem}/>
             </div>
         </div>
     );

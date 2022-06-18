@@ -52,7 +52,7 @@
 
     &_date-info {
         border-color: $dayBorderColor;
-        color: $dayTextColor;
+        color: $dayTitleColor;
     }
 
     &_info-block {
@@ -69,7 +69,7 @@
 
     &_date-info {
         border-color: $nightBorderColor;
-        color: $nightTextColor;
+        color: $nightTitleColor;
     }
 
     &_info-block {
@@ -78,5 +78,17 @@
 
     &_title {
         color: $nightTitleColor;
+    }
+}
+
+@media (max-width: 399px) {
+    .news-item {
+        height: 250px;
+    }
+}
+
+@media (max-width: 349px) {
+    .news-item {
+        height: 220px;
     }
 }

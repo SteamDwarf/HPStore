@@ -21,3 +21,9 @@
 .dark .authentification-block {
     border-color: $nightBorderColor;
 }
+
+@media (max-width: 699px) {
+    .authentification-block {
+        width: 100%;
+    }
+}

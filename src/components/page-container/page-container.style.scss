@@ -29,3 +29,9 @@
         color: $nightTitleColor;
     }
 }
+
+@media (max-width: 599px) {
+    .page-container {
+        width: 100%;
+    }
+}

@@ -28,7 +28,7 @@ const PurchasesTotal = () => {
                     </div>
                     <Button onClick={makePurchaseHandler}>Подтвердить покупку</Button>
                 </Fragment>
-                : <div>Вы не выбрали товары для покупки</div>
+                : <div>Ваша корзина пуста</div>
             }
         </div>
     );

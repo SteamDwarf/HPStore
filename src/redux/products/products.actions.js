@@ -5,6 +5,10 @@ export const fetchCategoriesStartAction = () => ({type: ProductsActions.FETCH_CA
 export const fetchCategoriesErrorAction = (error) => ({type: ProductsActions.FETCH_CATEGORIES_ERROR, payload: error});
 export const fetchCategoriesSuccessAction = (categories) => ({type: ProductsActions.FETCH_CATEGORIES_SUCCESS, payload: categories});
 
+export const fetchProductStartAction = () => ({type: ProductsActions.FETCH_PRODUCT_START});
+export const fetchProductErrorAction = (error) => ({type: ProductsActions.FETCH_PRODUCT_ERROR, payload: error});
+export const fetchProductSuccessAction = (product) => ({type: ProductsActions.FETCH_PRODUCT_SUCCESS, payload: product});
+
 export const fetchCategories = (category) => {
     return (dispatch) => {
         dispatch(fetchCategoriesStartAction());
@@ -16,3 +20,14 @@ export const fetchCategories = (category) => {
     }
 }
 
+export const fetchProduct = (categoryName, productName) => {
+    return (dispatch) => {
+        dispatch(fetchProductStartAction());
+
+        fetch(`http://localhost:5000/categories${categoryName ? `?name=${categoryName}` : ''}`)
+            .then(response => response.ok ? response.json() : Promise.reject())
+            .then(data => {console.log(data[0].goods.filter((product) => product.name === productName)); return data[0].goods.filter((product) => product.name === productName)})
+            .then(product => dispatch(fetchProductSuccessAction(product[0])))
+            .catch(error => dispatch(fetchProductErrorAction(parseError(error.message))));
+    }
+}

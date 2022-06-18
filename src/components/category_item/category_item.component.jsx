@@ -9,7 +9,7 @@ const CategoryItem = ({category}) => {
             backgroundImage: `url(${imageSrc})`
         }}>
             <div className="category-item_info-block">
-                <h3 className="category-item_title">{title}</h3>
+                <h4 className="category-item_title">{title}</h4>
             </div>
         </Link>
     );

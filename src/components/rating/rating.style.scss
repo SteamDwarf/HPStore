@@ -1,0 +1,46 @@
+@import '../../scss/vars.scss';
+
+.rating_block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 10px;
+    border: 1px solid;
+    border-radius: 5px
+}
+
+.light .rating_block {
+    border-color: $dayBorderColor;
+}
+.dark .rating_block {
+    border-color: $nightBorderColor;
+}
+
+.star_block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 120px;
+    height: 35px;
+    margin-right: 20px;
+    padding-right: 10px;
+    border-right: 1px solid;
+
+    & span {
+        width: 18%;
+        height: 25px;
+    }
+    & span svg {
+        fill: $placeholderColor;
+    }
+    & span:hover svg {
+        fill: #F09D15;
+    }
+}
+
+.light .star_block {
+    border-color: $dayBorderColor;
+}
+.dark .star_block {
+    border-color: $nightBorderColor;
+}
