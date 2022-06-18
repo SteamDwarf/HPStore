@@ -41,7 +41,7 @@ const PurchasesMessage = () => {
 
     if(makePurchaseError) {
         return (
-            <Modal>
+            <Modal className='top'>
                 <ErrorMessage text={makePurchaseError} size='large'/>
                 <div className="message_buttons-block">
                     <Button onClick={closeErrorMessage}>ОК</Button>
@@ -52,7 +52,7 @@ const PurchasesMessage = () => {
 
     if(isMakingPurchase) {
         return (
-            <Modal>
+            <Modal className='top'>
                 <h2 className="message_title">Ваш запрос обрабатывается...</h2>
                 <Loader />
             </Modal>
@@ -61,7 +61,7 @@ const PurchasesMessage = () => {
 
     if(successMessage) {
         return (
-            <Modal>
+            <Modal className='top'>
                 <h3>{successMessage}</h3>
             </Modal>
         );
@@ -69,7 +69,7 @@ const PurchasesMessage = () => {
 
     if(isConfirmationWait) {
         return (
-            <Modal>
+            <Modal className='top'>
                 <h3 className="message_title">Вы действительно хотите оформить покупку?</h3>
                 <div className="message_buttons-block">
                     <Button className="message_button" onClick={confirmMakingPurchase}>Подтвердить</Button>

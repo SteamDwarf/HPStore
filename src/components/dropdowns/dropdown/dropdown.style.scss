@@ -15,12 +15,12 @@
 
 .light .dropdown {
     border-color: $dayBorderColor;
-    background-color: $dayPanelColor;
+    background-color: $dayPanelColorOpaque;
 }
 
 .dark .dropdown {
     border-color: $nightBorderColor;
-    background-color: $nightPanelColor;
+    background-color: $nightPanelColorOpaque;
 }
 
 @media (max-width: 349px) {

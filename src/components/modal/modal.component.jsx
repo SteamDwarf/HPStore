@@ -1,8 +1,8 @@
 import './modal.style.scss';
 
-const Modal = ({children}) => {
+const Modal = ({children, className}) => {
     return (
-        <div className="modal-wrapper">
+        <div className={`modal-wrapper ${className}`}>
             <div className="modal-content">
                 {children}
             </div>
