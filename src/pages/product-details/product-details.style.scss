@@ -65,6 +65,7 @@
     &_description {
         padding-top: 10px;
         border-top: 2px solid;
+        text-align: justify;
     }
     
     .light &_description {
@@ -96,6 +97,10 @@
         }
 
         &_buy-block {
+            width: 100%;
+        }
+
+        &_description {
             width: 100%;
         }
     }

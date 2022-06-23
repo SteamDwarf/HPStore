@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react";
 import LabeledInput from "../../inputs/labeled_input/labeled_input.component";
-import { clearForms, signIn } from "../../../redux/user/user.actions";
+import { clearForms, signIn, signInErrorAction } from "../../../redux/user/user.actions";
 import Form from "../form/form.component";
 import './sign_in_form.style.scss';
 import { useDispatch, useSelector } from "react-redux/es/exports";
@@ -23,12 +23,24 @@ const SignInForm = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const cirilicRegex = /[^\u0000-\u007f]/;
+
     const onChangeHandler = (event) => {
         setSignInData({...signInData, [event.target.name]: event.target.value})
     }
 
     const onSubmit = (event) => {
         event.preventDefault();
+
+        if(password.length < 6) {
+            dispatch(signInErrorAction('Пароль слишком короткий. Минимальная длина 6 символов'));
+            return;
+        }
+
+        if(cirilicRegex.test(password) || cirilicRegex.test(email)) {
+            dispatch(signInErrorAction('Используйте латиницу для почтового адреса и пароля.'));
+            return;
+        }
 
         dispatch(signIn(email, password, successAuth));
     }

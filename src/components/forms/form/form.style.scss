@@ -29,6 +29,10 @@
     & .labeled-input_block {
         margin-bottom: 15px;
     }
+
+    & .error-message {
+        max-width: 300px;
+    }
 }
 
 .light .form_title {

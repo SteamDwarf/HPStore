@@ -8,7 +8,7 @@ import { fetchCategories } from "../../redux/products/products.actions";
 import { useEffect } from "react";
 
 const Category = () => {
-    const categoryName = useParams().categoty_name;
+    const categoryName = useParams().category_name;
     const [category] = useSelector(getCategories);
     const categoriesFetching = useSelector(getIsFetchingCategories);
     const categoriesError = useSelector(getErrorCategories);

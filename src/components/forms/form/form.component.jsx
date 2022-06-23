@@ -16,7 +16,7 @@ const Form = ({title, onSubmit, children, isFetching, errorStatus, successStatus
                     ? <FetchingStatus />
                     : null
                 }
-                <ErrorMessage text={errorStatus}/>
+                <ErrorMessage text={errorStatus} size='medium'/>
                 <SuccessMessage text={successStatus}/>
                 <Button type='submit'>{btnText}</Button>
             </div>

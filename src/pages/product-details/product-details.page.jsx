@@ -12,7 +12,7 @@ import './product-details.style.scss';
 const ProductDetails = () => {
     const dispatch = useDispatch();
     const productName = useParams().product_name;
-    const categoryName = useParams().categoty_name;
+    const categoryName = useParams().category_name;
     const product = useSelector(getProduct);
     const productFetching = useSelector(getIsFetchingProduct);
     const productError = useSelector(getErrorProduct);

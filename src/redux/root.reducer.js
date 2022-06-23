@@ -21,7 +21,8 @@ const cartPersistConfig = {
 
 const themePersistConfig = {
     key: 'theme',
-    storage
+    storage,
+    whitelist: ['theme']
 }
 
 export const rootReducer = combineReducers({

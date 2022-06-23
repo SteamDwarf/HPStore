@@ -53,7 +53,7 @@ const PurchasesMessage = () => {
     if(isMakingPurchase) {
         return (
             <Modal className='top'>
-                <h2 className="message_title">Ваш запрос обрабатывается...</h2>
+                <h3 className="message_title">Ваш запрос обрабатывается...</h3>
                 <Loader />
             </Modal>
         );
@@ -62,7 +62,7 @@ const PurchasesMessage = () => {
     if(successMessage) {
         return (
             <Modal className='top'>
-                <h3>{successMessage}</h3>
+                <h3 className="message_title">{successMessage}</h3>
             </Modal>
         );
     }

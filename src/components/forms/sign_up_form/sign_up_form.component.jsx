@@ -25,6 +25,8 @@ const SignUpForm = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const cirilicRegex = /[^\u0000-\u007f]/;
+
     const onChangeHandler = (event) => {
         setSignUpData({...signUpData, [event.target.name]: event.target.value})
     }
@@ -34,6 +36,16 @@ const SignUpForm = () => {
 
         if(password !== repeatedPassword){
             dispatch(signUpErrorAction('Пароли не совпадают'));
+            return;
+        }
+
+        if(password.length < 6) {
+            dispatch(signUpErrorAction('Пароль слишком короткий. Минимальная длина 6 символов'));
+            return;
+        }
+
+        if(cirilicRegex.test(password) || cirilicRegex.test(email)) {
+            dispatch(signUpErrorAction('Используйте латиницу для почтового адреса и пароля.'));
             return;
         }
 

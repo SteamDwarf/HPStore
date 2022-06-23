@@ -21,3 +21,15 @@
         margin-top: 40px;
     }
 }
+
+.light .message {
+    &_title {
+        color: $dayTitleColor
+    }
+}
+
+.dark .message {
+    &_title {
+        color: $nightTitleColor
+    }
+}
