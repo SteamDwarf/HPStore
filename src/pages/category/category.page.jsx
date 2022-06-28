@@ -15,6 +15,7 @@ const Category = () => {
     const products = category?.goods || [];
     const dispatch = useDispatch();
     
+    console.log(useParams());
     useEffect(() => dispatch(fetchCategories(categoryName)), []);
 
     return (
