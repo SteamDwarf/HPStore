@@ -4,8 +4,8 @@ import { userReducer } from "./user/user.reducer";
 import { persistReducer } from "redux-persist";
 import { cartReducer } from "./cart/cart.reducer";
 import storage from "redux-persist/lib/storage";
-import newsReducer from "./news/news.reducer";
 import themeReducer from './themes/themes.slice';
+import { appApi } from "./app.api";
 
 const userPersistConfig = {
     key: 'user',
@@ -29,6 +29,6 @@ export const rootReducer = combineReducers({
     user: persistReducer(userPersistConfig, userReducer),
     products: productsReducer,
     cart: persistReducer(cartPersistConfig, cartReducer),
-    news: newsReducer,
-    theme: persistReducer(themePersistConfig, themeReducer)
+    theme: persistReducer(themePersistConfig, themeReducer),
+    [appApi.reducerPath]: appApi.reducer,
 });
