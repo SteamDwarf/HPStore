@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux/es/exports";
 import './main.style.scss';
 import { toggleCartDropdownAction } from "../../redux/cart/cart.actions";
 import { getCartDropdownState } from "../../redux/cart/cart.selector";
-import { toggleBurgerMenuAction } from "../../redux/themes/themes.actions";
+import { toggleBurgerMenu } from "../../redux/themes/themes.slice";
 
 const Main = () => {
     const theme = useSelector(getTheme);
@@ -14,11 +14,11 @@ const Main = () => {
     const dispatch = useDispatch();
 
     const onClickHandler = (e) => {
-        if(!e.target.classList[0].includes('cart') && isCartDropdownOpen)
+        if(!e.target.classList[0]?.includes('cart') && isCartDropdownOpen)
             dispatch(toggleCartDropdownAction(false));
         
-        if(!e.target.classList[0].includes('header-links_dropdown') && isBurgerMenuOpen)
-            dispatch(toggleBurgerMenuAction(false));
+        if(!e.target.classList[0]?.includes('header-links_dropdown') && isBurgerMenuOpen)
+            dispatch(toggleBurgerMenu(false));
     }
 
     return (

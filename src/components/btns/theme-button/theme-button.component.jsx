@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux/es/exports";
 import { getTheme } from "../../../redux/themes/themes.selectors";
-import { setThemeAction } from "../../../redux/themes/themes.actions";
+import { setTheme } from "../../../redux/themes/themes.slice";
 import {ReactComponent as SunSVG} from '../../../assets/theme-buttons/sun-svgrepo-com (1).svg';
 import {ReactComponent as MoonSVG} from '../../../assets/theme-buttons/moon-svgrepo-com.svg';
 import './theme-button.style.scss';
@@ -10,7 +10,7 @@ const ThemeButton = () => {
     const dispatch = useDispatch();
 
     const changeTheme = () => {
-        theme === 'light' ? dispatch(setThemeAction('dark')) : dispatch(setThemeAction('light'))
+        theme === 'light' ? dispatch(setTheme('dark')) : dispatch(setTheme('light'))
     }
 
     if(theme === 'dark') 

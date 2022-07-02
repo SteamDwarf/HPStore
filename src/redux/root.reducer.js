@@ -5,7 +5,7 @@ import { persistReducer } from "redux-persist";
 import { cartReducer } from "./cart/cart.reducer";
 import storage from "redux-persist/lib/storage";
 import newsReducer from "./news/news.reducer";
-import { themeReducer } from "./themes/themes.reducer";
+import themeReducer from './themes/themes.slice';
 
 const userPersistConfig = {
     key: 'user',

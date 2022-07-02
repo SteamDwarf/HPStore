@@ -1,9 +1,6 @@
-import { applyMiddleware, legacy_createStore as createStore } from "redux";
 import { rootReducer } from "./root.reducer";
 import persistStore from "redux-persist/es/persistStore";
-import { composeWithDevTools } from "redux-devtools-extension";
-import thunk from "redux-thunk";
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 
 const logger = (store) => (next) => (action) => {
     if(!action.type) {
@@ -21,10 +18,6 @@ const logger = (store) => (next) => (action) => {
     console.log('curState: ', store.getState());
 }
 
-/* const middlewares = [logger, thunk];
-const composedEnchancers = composeWithDevTools(applyMiddleware(...middlewares));
-
-export const store = createStore(rootReducer, undefined, composedEnchancers); */
 export const store = configureStore({
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
