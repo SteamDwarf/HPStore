@@ -1,5 +1,4 @@
 import { combineReducers } from "redux";
-import { productsReducer } from "./products/products.reducer";
 import { userReducer } from "./user/user.reducer";
 import { persistReducer } from "redux-persist";
 import { cartReducer } from "./cart/cart.reducer";
@@ -27,7 +26,6 @@ const themePersistConfig = {
 
 export const rootReducer = combineReducers({
     user: persistReducer(userPersistConfig, userReducer),
-    products: productsReducer,
     cart: persistReducer(cartPersistConfig, cartReducer),
     theme: persistReducer(themePersistConfig, themeReducer),
     [appApi.reducerPath]: appApi.reducer,

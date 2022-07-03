@@ -1,24 +1,17 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import AddToCartBtn from '../../components/btns/add-to-cart-btn/add-to-cart-btn.component';
 import PageContainer from '../../components/page-container/page-container.component';
-import { fetchProduct } from '../../redux/products/products.actions';
-import { getErrorProduct, getIsFetchingProduct, getProduct } from '../../redux/products/products.selectors';
+import { useFetchProductQuery } from '../../redux/app.api';
 import './product-details.style.scss';
 
 const ProductDetails = () => {
-    const dispatch = useDispatch();
     const productName = useParams().product_name;
     const categoryName = useParams().category_name;
-    const product = useSelector(getProduct);
-    const productFetching = useSelector(getIsFetchingProduct);
-    const productError = useSelector(getErrorProduct);
-
-    useEffect(() => dispatch(fetchProduct(categoryName, productName)), []);
+    const {data, isLoading, error} = useFetchProductQuery({categoryName, productName});
+    const product = data ? data[0] : [];
 
     return (
-        <PageContainer isFetching={productFetching} error={productError}>
+        <PageContainer isFetching={isLoading} error={error}>
             <div className="product-details_container">
                 <h2 className='product-details_title'>{product.title}</h2>
                 <div className='product-details_base-information'>

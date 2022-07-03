@@ -1,24 +1,16 @@
 import { useParams } from "react-router";
-import { useDispatch, useSelector } from "react-redux/es/exports";
 import Container from "../../components/container/container.component";
 import PageContainer from "../../components/page-container/page-container.component";
 import { CONTAINER_TYPES } from "../../utils/types";
-import { getCategories, getErrorCategories, getIsFetchingCategories } from "../../redux/products/products.selectors";
-import { fetchCategories } from "../../redux/products/products.actions";
-import { useEffect } from "react";
+import { useFetchCategoryQuery, useFetchProductsQuery } from "../../redux/app.api";
 
 const Category = () => {
     const categoryName = useParams().category_name;
-    const [category] = useSelector(getCategories);
-    const categoriesFetching = useSelector(getIsFetchingCategories);
-    const categoriesError = useSelector(getErrorCategories);
-    const products = category?.goods || [];
-    const dispatch = useDispatch();
-    
-    useEffect(() => dispatch(fetchCategories(categoryName)), []);
+    const {data: categoryData, isLoading, error} = useFetchCategoryQuery(categoryName);
+    const {data: products = [], isLoading: isLoadingProduct, error: errorProducst} = useFetchProductsQuery(categoryName);
 
     return (
-        <PageContainer title={category?.title} isFetching={categoriesFetching} error={categoriesError}>
+        <PageContainer title={categoryData?.title} isFetching={isLoading || isLoadingProduct} error={error || errorProducst}>
             <Container itemsType={CONTAINER_TYPES.PRODUCT_ITEM} items={products}/>
         </PageContainer>
     );
