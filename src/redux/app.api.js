@@ -18,7 +18,14 @@ export const appApi = createApi({
         }),
         fetchProduct: builder.query({
             query: (urlParams) => `categories/${urlParams.categoryName}/goods?name=${urlParams.productName}`,
-        })
+        }),
+        makePurchase: builder.mutation({
+            query: ({user, cartProducts}) => ({
+                url: `users?id=${user.id}/goods`,
+                method: 'POST',
+                body: cartProducts
+            }),
+        }),
     })
 });
 
@@ -26,5 +33,6 @@ export const { useFetchNewsQuery,
                 useFetchCategoriesQuery, 
                 useFetchCategoryQuery, 
                 useFetchProductQuery,
-                useFetchProductsQuery 
+                useFetchProductsQuery,
+                useMakePurchaseMutation
             } = appApi;

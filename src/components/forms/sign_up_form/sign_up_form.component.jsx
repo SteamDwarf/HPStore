@@ -61,7 +61,7 @@ const SignUpForm = () => {
         setSignUpData(defaultSignUpData)
     }
 
-    useEffect(() => dispatch(clearForms()),[]);    
+    useEffect(() => {dispatch(clearForms())},[]);    
 
     return (
         <div className="sign-up-block">

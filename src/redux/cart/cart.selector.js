@@ -35,17 +35,7 @@ export const getConfirmationWait = createSelector(
     (cartStore) => cartStore.isConfirmationWait
 );
 
-export const getIsMakingPurchase = createSelector(
+export const getPurchaseError = createSelector(
     [getCartStore],
-    (cartStore) => cartStore.isMakingPurchase
-);
-
-export const getMakePurchaseError = createSelector(
-    [getCartStore],
-    (cartStore) => cartStore.makePurchaseError
-);
-
-export const getSuccessMessage = createSelector(
-    [getCartStore],
-    (cartStore) => cartStore.successMessage
-);
+    (cartStore) => cartStore.error
+)

@@ -1,26 +1,23 @@
 import ErrorMessage from "../../error_message/error_message.component";
-import { getCartProducts, getConfirmationWait, getMakePurchaseError, getSuccessMessage } from "../../../redux/cart/cart.selector";
-import { getIsMakingPurchase } from "../../../redux/cart/cart.selector";
+import { getCartProducts, getPurchaseError } from "../../../redux/cart/cart.selector";
+import { getConfirmationWait, getIsMakingPurchase } from "../../../redux/cart/cart.selector";
 import {useSelector, useDispatch} from 'react-redux';
 import { useNavigate} from "react-router";
 import './purchases-message.style.scss';
 import Modal from "../../modal/modal.component";
 import Button from "../../btns/button/button.component";
-import { makePurchaseErrorAction, setConfirmationWait } from "../../../redux/cart/cart.actions";
 import { getUser } from "../../../redux/user/user.selectors";
-import { makePurchase } from "../../../redux/cart/cart.actions";
 import Loader from "../../loader/loader.component";
+import { clearCart, setConfirmationWait, setPurchaseError } from "../../../redux/cart/cart.slice";
+import { useMakePurchaseMutation } from "../../../redux/app.api";
 
 const PurchasesMessage = () => {
     const dispatch = useDispatch();
-
-    const makePurchaseError = useSelector(getMakePurchaseError);
-    const isMakingPurchase = useSelector(getIsMakingPurchase);
     const isConfirmationWait = useSelector(getConfirmationWait);
-    const successMessage = useSelector(getSuccessMessage);
+    const [makePurchase, {isSuccess, isLoading, error, reset}] = useMakePurchaseMutation();
+    const purchaseError = useSelector(getPurchaseError);
     const user = useSelector(getUser);
     const cartProducts = useSelector(getCartProducts);
-    const navigate = useNavigate()
 
     
     const cancelConfirmation = () => {
@@ -28,29 +25,33 @@ const PurchasesMessage = () => {
     }
 
     const confirmMakingPurchase = () => {
-        dispatch(makePurchase(user, cartProducts, successPurchase));
+        makePurchase({user, cartProducts})
     }
 
-    const closeErrorMessage = () => {
-        dispatch(makePurchaseErrorAction(''));
+    const closeMessage = () => {
+        reset();
+        cancelConfirmation();
+        dispatch(setPurchaseError(''));
     }
 
-    const successPurchase = () => {
-        //navigate(-1);
+    const acceptPurchase = () => {
+        dispatch(clearCart());
+        closeMessage();
     }
 
-    if(makePurchaseError) {
+
+    if(error || purchaseError) {
         return (
             <Modal className='top'>
-                <ErrorMessage text={makePurchaseError} size='large'/>
+                <ErrorMessage text={error || {status: purchaseError}} size='large'/>
                 <div className="message_buttons-block">
-                    <Button onClick={closeErrorMessage}>ОК</Button>
+                    <Button onClick={closeMessage}>ОК</Button>
                 </div>
             </Modal>
         );
     }
 
-    if(isMakingPurchase) {
+    if(isLoading) {
         return (
             <Modal className='top'>
                 <h3 className="message_title">Ваш запрос обрабатывается...</h3>
@@ -59,10 +60,11 @@ const PurchasesMessage = () => {
         );
     }
 
-    if(successMessage) {
+    if(isSuccess) {
         return (
             <Modal className='top'>
-                <h3 className="message_title">{successMessage}</h3>
+                <h3 className="message_title">Покупка совершена успешно</h3>
+                <Button onClick={acceptPurchase}>ОК</Button>
             </Modal>
         );
     }
@@ -77,9 +79,7 @@ const PurchasesMessage = () => {
                 </div>
             </Modal>
         );
-    }
-
-    
+    }    
 
     return null;
 }

@@ -4,7 +4,7 @@ import './purchases-total.style.scss';
 import { getTotalProductsCost } from "../../../redux/cart/cart.selector";
 import { Fragment } from "react";
 import { getUser } from "../../../redux/user/user.selectors";
-import { makePurchaseErrorAction, setConfirmationWait } from "../../../redux/cart/cart.actions";
+import { setConfirmationWait, setPurchaseError } from "../../../redux/cart/cart.slice";
 
 const PurchasesTotal = () => {
     const totalProductsCost = useSelector(getTotalProductsCost)
@@ -13,7 +13,7 @@ const PurchasesTotal = () => {
 
     const makePurchaseHandler = () => {
         if(!user)
-            dispatch(makePurchaseErrorAction('Вы не зарегистрированы'));
+            dispatch(setPurchaseError('Вы не зарегистрированы'));
 
         dispatch(setConfirmationWait(true));
     }

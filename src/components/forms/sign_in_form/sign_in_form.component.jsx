@@ -54,7 +54,7 @@ const SignInForm = () => {
         setSignInData(defaultSignInData)
     }
 
-    useEffect(() => dispatch(clearForms()),[]);
+    useEffect(() => {dispatch(clearForms())},[]);
 
     return (
         <div className="sign-in-block">
