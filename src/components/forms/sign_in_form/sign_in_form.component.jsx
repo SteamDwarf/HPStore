@@ -1,12 +1,14 @@
 import { Fragment, useState } from "react";
 import LabeledInput from "../../inputs/labeled_input/labeled_input.component";
-import { clearForms, signIn, signInErrorAction } from "../../../redux/user/user.actions";
 import Form from "../form/form.component";
 import './sign_in_form.style.scss';
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { useNavigate } from "react-router";
-import { getSignInError, getSignInProcessing } from "../../../redux/user/user.selectors";
+import { getSignInError, getSignInProcessing, getUserError } from "../../../redux/user/user.selectors";
 import { useEffect } from "react";
+import { useLazyFetchUserQuery, useLazySignInQuery } from "../../../redux/app.api";
+import { signIn } from "../../../redux/user/user.async";
+import { setSignInError } from "../../../redux/user/user.slice";
 
 const defaultSignInData = {
     email: '',
@@ -17,9 +19,9 @@ const SignInForm = () => {
     const [signInData, setSignInData] = useState(defaultSignInData);
     const {email, password} = signInData;
 
-    const signInError = useSelector(getSignInError);
-    const signInProcessing = useSelector(getSignInProcessing);
+    const [fetchUser, {data, isLoading, error}] = useLazyFetchUserQuery();
 
+    const userError = useSelector(getSignInError);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -33,16 +35,16 @@ const SignInForm = () => {
         event.preventDefault();
 
         if(password.length < 6) {
-            dispatch(signInErrorAction('Пароль слишком короткий. Минимальная длина 6 символов'));
+            dispatch(setSignInError({status: 'Пароль слишком короткий. Минимальная длина 6 символов'}));
             return;
         }
 
         if(cirilicRegex.test(password) || cirilicRegex.test(email)) {
-            dispatch(signInErrorAction('Используйте латиницу для почтового адреса и пароля.'));
+            dispatch(setSignInError({status: 'Используйте латиницу для почтового адреса и пароля.'}));
             return;
         }
 
-        dispatch(signIn(email, password, successAuth));
+        signIn(signInData, fetchUser, dispatch, successAuth);
     }
 
     function successAuth() {
@@ -54,7 +56,7 @@ const SignInForm = () => {
         setSignInData(defaultSignInData)
     }
 
-    useEffect(() => {dispatch(clearForms())},[]);
+    useEffect(() => {dispatch(setSignInError(''))},[]);
 
     return (
         <div className="sign-in-block">
@@ -87,8 +89,8 @@ const SignInForm = () => {
                         </div>
                     </Fragment>
                 }
-                isFetching={signInProcessing}
-                errorStatus={signInError}
+                isFetching={isLoading}
+                errorStatus={userError || error}
                 btnText='Войти'
             />
         </div>

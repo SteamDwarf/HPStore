@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { userReducer } from "./user/user.reducer";
+import userReducer from './user/user.slice';
 import { persistReducer } from "redux-persist";
 import cartSlice from "./cart/cart.slice";
 import storage from "redux-persist/lib/storage";

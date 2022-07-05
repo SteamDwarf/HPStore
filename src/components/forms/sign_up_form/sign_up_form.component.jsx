@@ -1,13 +1,14 @@
 import { Fragment, useState, useEffect } from "react";
-import { signUp } from "../../../redux/user/user.actions";
 import Form from "../form/form.component";
 import LabeledInput from "../../inputs/labeled_input/labeled_input.component";
 import './sign_up_form.style.scss';
 import { useDispatch, useSelector } from "react-redux";
-import { signUpErrorAction } from "../../../redux/user/user.actions";
 import { useNavigate } from "react-router";
-import { getSignUpError, getSignUpProcessing } from "../../../redux/user/user.selectors";
-import { clearForms } from "../../../redux/user/user.actions";
+import { getSignUpError } from "../../../redux/user/user.selectors";
+import { setSignUpError } from "../../../redux/user/user.slice";
+import { useLazyFetchUserQuery, usePostUserMutation } from "../../../redux/app.api";
+import { signUp } from "../../../redux/user/user.async";
+
 
 const defaultSignUpData = {
     email: '',
@@ -19,7 +20,8 @@ const SignUpForm = () => {
     const [signUpData, setSignUpData] = useState(defaultSignUpData);
     const {email, password, repeatedPassword} = signUpData;
 
-    const signUpProcessing = useSelector(getSignUpProcessing);
+    const [fetchUser, {isLoading: isFetchingUser, error: fetchingError}] = useLazyFetchUserQuery();
+    const [postUser, {isLoading: isPostingUser, error: postingError}] = usePostUserMutation()
     const signUpError = useSelector(getSignUpError);
 
     const dispatch = useDispatch();
@@ -31,25 +33,25 @@ const SignUpForm = () => {
         setSignUpData({...signUpData, [event.target.name]: event.target.value})
     }
 
-    const onSubmit = async (event) => {
+    const onSubmit = (event) => {
         event.preventDefault();
 
         if(password !== repeatedPassword){
-            dispatch(signUpErrorAction('Пароли не совпадают'));
+            dispatch(setSignUpError({status: 'Пароли не совпадают'}));
             return;
         }
 
         if(password.length < 6) {
-            dispatch(signUpErrorAction('Пароль слишком короткий. Минимальная длина 6 символов'));
+            dispatch(setSignUpError({status: 'Пароль слишком короткий. Минимальная длина 6 символов'}));
             return;
         }
 
         if(cirilicRegex.test(password) || cirilicRegex.test(email)) {
-            dispatch(signUpErrorAction('Используйте латиницу для почтового адреса и пароля.'));
+            dispatch(setSignUpError({status: 'Используйте латиницу для почтового адреса и пароля.'}));
             return;
         }
 
-        dispatch(signUp(email, password, successFunction));
+        signUp({email, password}, fetchUser, postUser, dispatch, successFunction);
     }
 
     function successFunction() {
@@ -61,7 +63,7 @@ const SignUpForm = () => {
         setSignUpData(defaultSignUpData)
     }
 
-    useEffect(() => {dispatch(clearForms())},[]);    
+    useEffect(() => {dispatch(setSignUpError(''))},[]);    
 
     return (
         <div className="sign-up-block">
@@ -105,8 +107,8 @@ const SignUpForm = () => {
                         </div>
                     </Fragment>
                 }
-                isFetching={signUpProcessing}
-                errorStatus={signUpError}
+                isFetching={isFetchingUser || isPostingUser}
+                errorStatus={signUpError || fetchingError || postingError}
                 btnText='Зарегистрироваться'
             />
         </div>
