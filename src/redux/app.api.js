@@ -36,21 +36,6 @@ export const appApi = createApi({
                 body: user
             })
         })
-        /* signIn: builder.query({
-            query: (user) => `users?email=${user.email}`,
-            transformResponse: (responseData, meta, {user, successFunc}) => {
-                console.log(responseData);
-                console.log(meta);
-                //Если есть в meta dispatch то можно в него отправить данные пользователя
-                if(responseData.length < 1)
-                    return {user: null, error: "Такого пользователя не существует"}
-                if(responseData[0].password !== user.password)
-                    return {user: null, error: "Неверный пароль"}
-                
-                successFunc({user: {...responseData[0], password: ''}, error: ''});
-                return {user: {...responseData[0], password: ''}, error: ''}
-            }
-        }) */
     })
 });
 
