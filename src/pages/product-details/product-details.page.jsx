@@ -1,7 +1,7 @@
 import { useParams } from 'react-router';
 import AddToCartBtn from '../../components/btns/add-to-cart-btn/add-to-cart-btn.component';
 import PageContainer from '../../components/page-container/page-container.component';
-import { useFetchProductsQuery } from '../../redux/app.api';
+import { useFetchProductsQuery } from '../../redux/api/app.api';
 import './product-details.style.scss';
 
 const ProductDetails = () => {

@@ -1,26 +1,30 @@
-import { setUser, setSignInError, setSignUpError } from "./user.slice";
+import { setUser, setSignInError, setSignUpError, signInUser } from "./user.slice";
 
-export const signIn = (userData, fetchUserFunc, dispatch, successFunc) => {
-    fetchUserFunc(userData).unwrap()
+export const signUp = (userData, signUpFunc, signInFunc, dispatch, successFunc) => {
+    signUpFunc(userData).unwrap()
     .then(data => {
-        
-        if(data.length <= 0) return Promise.reject({status: 'Данный пользователь не найден'});
-        if(data[0].password !== userData.password) return Promise.reject({status: 'Вы ввели некорректный пароль'});
-
-        dispatch(setUser({...data[0], password: ''}));
-        successFunc();
+        signIn(userData, signInFunc, dispatch, successFunc);
     })
-    .catch(error => dispatch(setSignInError(error)))
+    .catch(data => {
+        console.error(data);
+        dispatch(setSignUpError(data))
+    });
 }
 
-export const signUp = (userData, fetchUserFunc, postUserFunc, dispatch, successFunc) => {
-    fetchUserFunc(userData).unwrap()
+export const signIn = (userData, signInFunc, dispatch, successFunc) => {
+    signInFunc(userData).unwrap()
     .then(data => {
-        if(data.length > 0) return Promise.reject({status: 'Данный пользователь уже существует'});
-
-        postUserFunc(userData);
-        dispatch(setUser({...userData, password: ''}));
+        dispatch(signInUser(data));
         successFunc();
     })
-    .catch(error => dispatch(setSignUpError(error)))
+    .catch(data => {
+        console.error(data);
+        dispatch(setSignInError(data))
+    });
+}
+
+export const authorization = (authorizationFunc, dispatch) => {
+    authorizationFunc().unwrap()
+    .then(user => dispatch(setUser(user)))
+    .catch(error => console.error(error));
 }

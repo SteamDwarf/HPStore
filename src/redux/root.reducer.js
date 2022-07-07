@@ -4,12 +4,13 @@ import { persistReducer } from "redux-persist";
 import cartSlice from "./cart/cart.slice";
 import storage from "redux-persist/lib/storage";
 import themeReducer from './themes/themes.slice';
-import { appApi } from "./app.api";
+import { appApi } from "./api/app.api";
+import { authApi } from "./api/auth.api";
 
 const userPersistConfig = {
     key: 'user',
     storage,
-    whitelist: ['user']
+    whitelist: ['token']
 }
 
 const cartPersistConfig = {
@@ -29,4 +30,5 @@ export const rootReducer = combineReducers({
     cart: persistReducer(cartPersistConfig, cartSlice),
     theme: persistReducer(themePersistConfig, themeReducer),
     [appApi.reducerPath]: appApi.reducer,
+    [authApi.reducerPath]: authApi.reducer
 });

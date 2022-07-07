@@ -2,7 +2,7 @@ import Container from "../../components/container/container.component";
 import PageContainer from "../../components/page-container/page-container.component";
 import { CONTAINER_TYPES } from "../../utils/types";
 import './products.style.scss';
-import { useFetchCategoriesQuery } from "../../redux/app.api";
+import { useFetchCategoriesQuery } from "../../redux/api/app.api";
 
 
 const Products = () => {

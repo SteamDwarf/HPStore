@@ -2,7 +2,7 @@ import { useParams } from "react-router";
 import Container from "../../components/container/container.component";
 import PageContainer from "../../components/page-container/page-container.component";
 import { CONTAINER_TYPES } from "../../utils/types";
-import { useFetchCategoryQuery, useFetchProductsQuery } from "../../redux/app.api";
+import { useFetchCategoryQuery, useFetchProductsQuery } from "../../redux/api/app.api";
 
 const Category = () => {
     const categoryName = useParams().category_name;

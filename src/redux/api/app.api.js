@@ -8,7 +8,7 @@ export const appApi = createApi({
             query: () => 'news'
         }),
         fetchCategories: builder.query({
-        query: () => `categories`,
+            query: () => `categories`,
         }),
         fetchCategory: builder.query({
             query: (categoryName) => `categories/${categoryName}`,

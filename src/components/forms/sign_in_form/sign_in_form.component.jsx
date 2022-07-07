@@ -4,11 +4,11 @@ import Form from "../form/form.component";
 import './sign_in_form.style.scss';
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { useNavigate } from "react-router";
-import { getSignInError, getSignInProcessing, getUserError } from "../../../redux/user/user.selectors";
+import { getSignInError } from "../../../redux/user/user.selectors";
 import { useEffect } from "react";
-import { useLazyFetchUserQuery, useLazySignInQuery } from "../../../redux/app.api";
-import { signIn } from "../../../redux/user/user.async";
+import { signIn} from "../../../redux/user/user.async";
 import { setSignInError } from "../../../redux/user/user.slice";
+import { useLoginMutation } from "../../../redux/api/auth.api";
 
 const defaultSignInData = {
     email: '',
@@ -19,7 +19,7 @@ const SignInForm = () => {
     const [signInData, setSignInData] = useState(defaultSignInData);
     const {email, password} = signInData;
 
-    const [fetchUser, {data, isLoading, error}] = useLazyFetchUserQuery();
+    const [authFunc, {isLoading}] = useLoginMutation();
 
     const userError = useSelector(getSignInError);
     const dispatch = useDispatch();
@@ -35,16 +35,16 @@ const SignInForm = () => {
         event.preventDefault();
 
         if(password.length < 6) {
-            dispatch(setSignInError({status: 'Пароль слишком короткий. Минимальная длина 6 символов'}));
+            dispatch(setSignInError('Пароль слишком короткий. Минимальная длина 6 символов'));
             return;
         }
 
         if(cirilicRegex.test(password) || cirilicRegex.test(email)) {
-            dispatch(setSignInError({status: 'Используйте латиницу для почтового адреса и пароля.'}));
+            dispatch(setSignInError('Используйте латиницу для почтового адреса и пароля.'));
             return;
         }
 
-        signIn(signInData, fetchUser, dispatch, successAuth);
+        signIn(signInData, authFunc, dispatch, successAuth);
     }
 
     function successAuth() {
@@ -90,8 +90,9 @@ const SignInForm = () => {
                     </Fragment>
                 }
                 isFetching={isLoading}
-                errorStatus={userError || error}
+                errorStatus={userError}
                 btnText='Войти'
+                routeLink={{url: '/authentification/sign-up', text: 'Зарегистрироваться'}}
             />
         </div>
     )

@@ -1,6 +1,6 @@
 import Container from '../../components/container/container.component.jsx';
 import PageContainer from '../../components/page-container/page-container.component.jsx';
-import { useFetchNewsQuery } from '../../redux/app.api.js';
+import { useFetchNewsQuery } from '../../redux/api/app.api';
 import { CONTAINER_TYPES } from '../../utils/types.js';
 import './home.style.scss';
 

@@ -1,15 +1,14 @@
 import ErrorMessage from "../../error_message/error_message.component";
 import { getCartProducts, getPurchaseError } from "../../../redux/cart/cart.selector";
-import { getConfirmationWait, getIsMakingPurchase } from "../../../redux/cart/cart.selector";
+import { getConfirmationWait } from "../../../redux/cart/cart.selector";
 import {useSelector, useDispatch} from 'react-redux';
-import { useNavigate} from "react-router";
 import './purchases-message.style.scss';
 import Modal from "../../modal/modal.component";
 import Button from "../../btns/button/button.component";
 import { getUser } from "../../../redux/user/user.selectors";
 import Loader from "../../loader/loader.component";
 import { clearCart, setConfirmationWait, setPurchaseError } from "../../../redux/cart/cart.slice";
-import { useMakePurchaseMutation } from "../../../redux/app.api";
+import { useMakePurchaseMutation } from "../../../redux/api/app.api";
 
 const PurchasesMessage = () => {
     const dispatch = useDispatch();

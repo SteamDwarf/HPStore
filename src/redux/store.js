@@ -2,9 +2,10 @@ import { rootReducer } from "./root.reducer";
 import persistStore from "redux-persist/es/persistStore";
 import { FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist";
 import { configureStore } from "@reduxjs/toolkit";
-import { appApi } from "./app.api";
+import { appApi } from "./api/app.api";
+import { authApi } from "./api/auth.api";
 
-const logger = (store) => (next) => (action) => {
+/* const logger = (store) => (next) => (action) => {
     if(!action.type) {
         return next(action);
     }
@@ -19,8 +20,8 @@ const logger = (store) => (next) => (action) => {
 
     console.log('curState: ', store.getState());
 }
-
-const middlewares = [/* logger,  */appApi.middleware];
+ */
+const middlewares = [appApi.middleware, authApi.middleware];
 
 export const store = configureStore({
     reducer: rootReducer,

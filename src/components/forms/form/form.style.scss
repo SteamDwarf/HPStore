@@ -22,16 +22,36 @@
         background-color: $panelColor;
     }
 
-    & &-btn {
-        margin-top: 20px;
-    }
-
     & .labeled-input_block {
         margin-bottom: 15px;
     }
 
     & .error-message {
         max-width: 300px;
+    }
+
+    &_route-link {
+        margin-top: 10px;
+        font-weight: bold;
+        text-decoration-color: transparent;
+        text-decoration-thickness: 2px;
+        transition: text-decoration 0.3s;
+    }
+
+    .dark &_route-link {
+        color: $nightTitleColor;
+
+        &:hover {
+            text-decoration-color: $nightTitleColor;
+        }
+    }
+
+    .light &_route-link {
+        color: $dayTitleColor;
+
+        &:hover {
+            text-decoration-color: $dayTitleColor;
+        }
     }
 }
 
