@@ -10,7 +10,6 @@ const Form = ({title, onSubmit, children, isFetching, errorStatus, successStatus
         if (isFetching) return <FetchingStatus />
         if (errorStatus) return <ErrorMessage text={errorStatus} size='medium'/>
         if (successStatus) return <SuccessMessage text={successStatus}/>
-
     }
 
     return (

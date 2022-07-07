@@ -1,13 +1,7 @@
-export const fetchFromServer = (url, setFunction) => {
-    fetch(url)
-        .then(response => response.ok ? response.json() : Promise.reject())
-        .then(data => setFunction(data))
-        .catch(error => console.error(error));
-}
-
 export const parseError = (error) => {
     if(typeof error === 'string') return error;
     if(error?.data?.errors || error?.data?.message) return swaggerParseError(error);
+    if(error?.error) return serverError(error);
 }
 
 const swaggerParseError = (data) => {
@@ -27,6 +21,6 @@ const swaggerParseError = (data) => {
     return errorsStr;
 }
 
-const parseSimpleError = (error) => {
-    return error;
+const serverError = (error) => {
+    if(error.error === "TypeError: Failed to fetch") return "Не удалось получить данные с сервера";
 }

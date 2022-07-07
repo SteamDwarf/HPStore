@@ -23,10 +23,9 @@ const SignUpForm = () => {
     const [signUpData, setSignUpData] = useState(defaultSignUpData);
     const {email, password, repeatedPassword} = signUpData;
 
-    /* const [fetchUser, {isLoading: isFetchingUser, error: fetchingError}] = useLazyFetchUserQuery();
-    const [postUser, {isLoading: isPostingUser, error: postingError}] = usePostUserMutation() */
     const [signUpFunc, {isLoading: isSignUp}] = useSignUpMutation();
     const [signInFunc, {isLoading: isSignIn}] = useLoginMutation();
+    
     const signUpError = useSelector(getSignUpError);
 
     const dispatch = useDispatch();
@@ -56,13 +55,12 @@ const SignUpForm = () => {
             return;
         }
 
-        //signUp(signUpData, fetchUser, postUser, dispatch, successAuth);
         signUp(signUpData, signUpFunc, signInFunc, dispatch, successAuth);
     }
 
     function successAuth() {
         clearForm();
-        navigate(-1)
+        navigate(-2)
     }
 
     function clearForm() {
@@ -113,7 +111,6 @@ const SignUpForm = () => {
                         </div>
                     </Fragment>
                 }
-                //isFetching={isFetchingUser || isPostingUser}
                 isFetching={isSignIn || isSignUp}
                 errorStatus={signUpError}
                 btnText='Зарегистрироваться'

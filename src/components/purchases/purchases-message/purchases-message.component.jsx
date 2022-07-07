@@ -42,7 +42,7 @@ const PurchasesMessage = () => {
     if(error || purchaseError) {
         return (
             <Modal className='top'>
-                <ErrorMessage text={error || {status: purchaseError}} size='large'/>
+                <ErrorMessage text={error || purchaseError} size='large'/>
                 <div className="message_buttons-block">
                     <Button onClick={closeMessage}>ОК</Button>
                 </div>

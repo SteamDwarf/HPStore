@@ -6,7 +6,7 @@ import { getCartDropdownState } from '../../redux/cart/cart.selector';
 import CartBtn from '../btns/cart-btn/cart-btn.component';
 import CartDropdown from '../dropdowns/cart-dropdown/cart-dropdown.component';
 import ThemeButton from '../btns/theme-button/theme-button.component';
-import { setUser, signOut } from '../../redux/user/user.slice';
+import { signOut } from '../../redux/user/user.slice';
 
 const HeaderLinks = () => {
     const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const HeaderLinks = () => {
             <Link className='header_link' to='/categories'>ТОВАРЫ</Link>
             {
                 user
-                ?<span className='header_link' onClick={signOutHandler}>ВЫЙТИ</span>
+                ?<Link className='header_link' to='/authentification/sign-in' onClick={signOutHandler}>ВЫЙТИ</Link>
                 :<Link className='header_link' to='/authentification/sign-in'>ВОЙТИ</Link>
             }
             <CartBtn />

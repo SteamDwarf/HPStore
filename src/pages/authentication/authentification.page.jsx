@@ -7,8 +7,6 @@ const Authentification = () => {
     return (
         <div className="authentification-block">
             <Outlet />
-{/*             <SignUpForm />
-            <SignInForm /> */}
         </div>
     );
 }

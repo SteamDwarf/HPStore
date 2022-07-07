@@ -5,22 +5,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import { appApi } from "./api/app.api";
 import { authApi } from "./api/auth.api";
 
-/* const logger = (store) => (next) => (action) => {
-    if(!action.type) {
-        return next(action);
-    }
-
-    console.log({
-        actionType: action.type,
-        actionPayload: action.payload,
-        prevState: store.getState()
-    });
-
-    next(action);
-
-    console.log('curState: ', store.getState());
-}
- */
 const middlewares = [appApi.middleware, authApi.middleware];
 
 export const store = configureStore({
