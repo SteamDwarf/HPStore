@@ -33,6 +33,14 @@
         font-size: 2em !important;
         cursor: pointer;
     }
+
+    .light &_price {
+        color: $dayTitleColor;
+    }
+
+    .dark &_price {
+        color: $nightTitleColor;
+    }
 }
 
 .purchases-item.compact {
@@ -72,8 +80,8 @@
 
     &_delete {
         position: absolute;
-        top: 0;
-        right: -6%;
+        top: -2%;
+        right: -8%;
         font-size: 1.5em !important;
     }
 }

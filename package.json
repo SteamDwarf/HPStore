@@ -1,13 +1,14 @@
 {
   "name": "hp-store",
   "version": "0.1.0",
-  "private": true,
-  "homepage": ".",
+  "private": false,
+  "homepage": "https://steamdwarf.github.io/HPStore/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
+    "gh-pages": "^4.0.0",
     "json-server": "^0.17.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
@@ -29,7 +30,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server --watch db.json --port 5000"
+    "server": "json-server --watch db.json --port 5000",
+    "deploy": "gh-pages --remote additional -d build",
+    "predeploy": "npm run build"
   },
   "eslintConfig": {
     "extends": [

@@ -53,7 +53,7 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
-        width: 50%;
+        width: 100%;
     }
 
     &_price {
@@ -76,7 +76,7 @@
     }
 }
 
-@media (max-width: 1499px) {
+@media (max-width: 1620px) {
     .product-details {
         &_information {
             width: 100%;
