@@ -12,7 +12,7 @@ import SignUpForm from "./components/forms/sign_up_form/sign_up_form.component";
 function App() {
   return (
     <Routes className="app">
-      <Route path="/" element={<Main />}>
+      <Route path="" element={<Main />}>
         <Route index element={<Home />}/>
         <Route path="authentification" element={<Authentification />}>
           <Route path="sign-in" element={<SignInForm />}/>
