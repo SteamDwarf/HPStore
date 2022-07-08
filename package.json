@@ -2,7 +2,7 @@
   "name": "hp-store",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://steamdwarf.github.io/HPStore/",
+  "homepage": "https://steamdwarf.github.io/HPStore",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^5.16.4",
