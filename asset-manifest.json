@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "./static/css/main.21e5f91b.css",
-    "main.js": "./static/js/main.8d9d66b7.js",
-    "static/js/787.99e1e651.chunk.js": "./static/js/787.99e1e651.chunk.js",
-    "static/media/626b97c093fcf.png": "./static/media/626b97c093fcf.905246b188323b7b17b0.png",
-    "static/media/626b9729590b4.png": "./static/media/626b9729590b4.ca3d5eb839dbdedbd1c3.png",
-    "static/media/-gold-coins-pot.png": "./static/media/0205994a7ba1bb2e03648f593d2cdf11-gold-coins-pot.851077bd1c60f0d108a5.png",
-    "static/media/HarryPotter.ttf": "./static/media/HarryPotter.0a6fdeb3007fdbf17e06.ttf",
-    "static/media/giphy.gif": "./static/media/giphy.29bc1c6be987af5517ac.gif",
-    "static/media/moon-svgrepo-com.svg": "./static/media/moon-svgrepo-com.7a1bc04af6d0b5c1e9957ce86222ab3e.svg",
-    "static/media/sun-svgrepo-com (1).svg": "./static/media/sun-svgrepo-com (1).eecf59b679048bc0d60ae022a0a271e7.svg",
-    "static/media/golden_harry_magic_movie_potter_snitch_icon_183153.svg": "./static/media/golden_harry_magic_movie_potter_snitch_icon_183153.ff2f7ad36cddf2ed337475b3ba237b5d.svg",
-    "index.html": "./index.html",
-    "main.21e5f91b.css.map": "./static/css/main.21e5f91b.css.map",
-    "main.8d9d66b7.js.map": "./static/js/main.8d9d66b7.js.map",
-    "787.99e1e651.chunk.js.map": "./static/js/787.99e1e651.chunk.js.map"
+    "main.css": "/HPStore/static/css/main.5f9aedfa.css",
+    "main.js": "/HPStore/static/js/main.11326e3f.js",
+    "static/js/787.99e1e651.chunk.js": "/HPStore/static/js/787.99e1e651.chunk.js",
+    "static/media/626b97c093fcf.png": "/HPStore/static/media/626b97c093fcf.905246b188323b7b17b0.png",
+    "static/media/626b9729590b4.png": "/HPStore/static/media/626b9729590b4.ca3d5eb839dbdedbd1c3.png",
+    "static/media/-gold-coins-pot.png": "/HPStore/static/media/0205994a7ba1bb2e03648f593d2cdf11-gold-coins-pot.851077bd1c60f0d108a5.png",
+    "static/media/HarryPotter.ttf": "/HPStore/static/media/HarryPotter.0a6fdeb3007fdbf17e06.ttf",
+    "static/media/giphy.gif": "/HPStore/static/media/giphy.29bc1c6be987af5517ac.gif",
+    "static/media/moon-svgrepo-com.svg": "/HPStore/static/media/moon-svgrepo-com.7a1bc04af6d0b5c1e9957ce86222ab3e.svg",
+    "static/media/sun-svgrepo-com (1).svg": "/HPStore/static/media/sun-svgrepo-com (1).eecf59b679048bc0d60ae022a0a271e7.svg",
+    "static/media/golden_harry_magic_movie_potter_snitch_icon_183153.svg": "/HPStore/static/media/golden_harry_magic_movie_potter_snitch_icon_183153.ff2f7ad36cddf2ed337475b3ba237b5d.svg",
+    "index.html": "/HPStore/index.html",
+    "main.5f9aedfa.css.map": "/HPStore/static/css/main.5f9aedfa.css.map",
+    "main.11326e3f.js.map": "/HPStore/static/js/main.11326e3f.js.map",
+    "787.99e1e651.chunk.js.map": "/HPStore/static/js/787.99e1e651.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.21e5f91b.css",
-    "static/js/main.8d9d66b7.js"
+    "static/css/main.5f9aedfa.css",
+    "static/js/main.11326e3f.js"
   ]
 }
