@@ -1,7 +1,7 @@
 export const parseError = (error) => {
     if(typeof error === 'string') return error;
     if(error?.data?.errors || error?.data?.message) return swaggerParseError(error);
-    if(error?.error) return serverError(error);
+    if(error?.error || error?.status) return serverError(error);
 }
 
 const swaggerParseError = (data) => {
@@ -23,4 +23,5 @@ const swaggerParseError = (data) => {
 
 const serverError = (error) => {
     if(error.error === "TypeError: Failed to fetch") return "Не удалось получить данные с сервера";
+    if(error.status === 404) return "404. Страница не найдена"
 }

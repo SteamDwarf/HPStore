@@ -1,5 +1,6 @@
 import { useParams } from 'react-router';
 import AddToCartBtn from '../../components/btns/add-to-cart-btn/add-to-cart-btn.component';
+import ErrorMessage from '../../components/error_message/error_message.component';
 import PageContainer from '../../components/page-container/page-container.component';
 import { useFetchProductsQuery } from '../../redux/api/app.api';
 import './product-details.style.scss';
@@ -33,7 +34,11 @@ const ProductDetails = () => {
                         </div>
                     </div>
                 )
-                : null
+                : (
+                <div className="product-details_container">
+                    <ErrorMessage text="Данный товар отсутствует." size="large"/>
+                </div>
+                )
             }
         </PageContainer>
     );

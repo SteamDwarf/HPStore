@@ -3,7 +3,7 @@ import ContainerMessage from '../container-message/container-message.component';
 import Loader from '../loader/loader.component';
 import './page-container.style.scss';
 
-const PageContainer = ({title, children, isFetching, error, className}) => {
+const PageContainer = ({title, children, isFetching, error, className=''}) => {
 
     const curContent = () => {
         if(isFetching) return <Loader />;

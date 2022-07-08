@@ -8,6 +8,7 @@ import Purchases from "./pages/purchases/purchases.page";
 import ProductDetails from "./pages/product-details/product-details.page";
 import SignInForm from "./components/forms/sign_in_form/sign_in_form.component";
 import SignUpForm from "./components/forms/sign_up_form/sign_up_form.component";
+import NotFound from "./pages/not-found/NotFound.page";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="categories/:category_name" element={<Category />}/>
         <Route path="categories/:category_name/:product_name" element={<ProductDetails />}/>
         <Route path="purchases" element={<Purchases />}/>
+        <Route path="*" element={<NotFound />}/>
       </Route>
     </Routes>
   );
