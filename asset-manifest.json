@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/HPStore/static/css/main.1c0c6b93.css",
-    "main.js": "/HPStore/static/js/main.968187bd.js",
+    "main.js": "/HPStore/static/js/main.ce37f3a4.js",
     "static/js/787.99e1e651.chunk.js": "/HPStore/static/js/787.99e1e651.chunk.js",
     "static/media/626b97c093fcf.png": "/HPStore/static/media/626b97c093fcf.905246b188323b7b17b0.png",
     "static/media/626b9729590b4.png": "/HPStore/static/media/626b9729590b4.ca3d5eb839dbdedbd1c3.png",
@@ -13,11 +13,11 @@
     "static/media/golden_harry_magic_movie_potter_snitch_icon_183153.svg": "/HPStore/static/media/golden_harry_magic_movie_potter_snitch_icon_183153.ff2f7ad36cddf2ed337475b3ba237b5d.svg",
     "index.html": "/HPStore/index.html",
     "main.1c0c6b93.css.map": "/HPStore/static/css/main.1c0c6b93.css.map",
-    "main.968187bd.js.map": "/HPStore/static/js/main.968187bd.js.map",
+    "main.ce37f3a4.js.map": "/HPStore/static/js/main.ce37f3a4.js.map",
     "787.99e1e651.chunk.js.map": "/HPStore/static/js/787.99e1e651.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1c0c6b93.css",
-    "static/js/main.968187bd.js"
+    "static/js/main.ce37f3a4.js"
   ]
 }
