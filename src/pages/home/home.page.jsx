@@ -6,7 +6,7 @@ import './home.style.scss';
 
 const Home = () => {
     const {data, isLoading, error} = useFetchNewsQuery();
-    console.log(error);
+    
     return (
         <PageContainer title='Новости' isFetching={isLoading} error={error}>
             <Container itemsType={CONTAINER_TYPES.NEWS_ITEM} items={data ? [...data].reverse() : []}/>
