@@ -24,8 +24,8 @@ const LinksDropdown = () => {
                 <Link className='header-links_dropdown-link' to='/categories' onClick={clickHandler}>ТОВАРЫ</Link>
                 {
                     user
-                    ?<Link className='header-links_dropdown-link' to='#' onClick={() => clickHandler(signOut)}>ВЫЙТИ</Link>
-                    :<Link className='header-links_dropdown-link' to='/authentification' onClick={clickHandler}>ВОЙТИ</Link>
+                    ?<Link className='header-links_dropdown-link' to='/authentification/sign-in' onClick={() => clickHandler(signOut)}>ВЫЙТИ</Link>
+                    :<Link className='header-links_dropdown-link' to='/authentification/sign-in' onClick={clickHandler}>ВОЙТИ</Link>
                 }
                 <Link className='header-links_dropdown-link' to='/purchases' onClick={clickHandler}>КОРЗИНА</Link>
             </div>
