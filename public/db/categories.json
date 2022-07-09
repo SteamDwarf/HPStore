@@ -1,0 +1,22 @@
+{
+    "categories": [
+        {
+            "id": "clothes",
+            "name": "clothes",
+            "title": "Одежда",
+            "imageSrc": "https://sc01.alicdn.com/kf/HTB1jckTOXXXXXXYXFXXq6xXFXXXC/Wholesale-Hot-Sale-Harry-Potter-Costume-For.jpg"
+        },
+        {
+            "id": "sweets",
+            "name": "sweets",
+            "title": "Товары из магазина 'Сладкое королевство'",
+            "imageSrc": "https://c1.staticflickr.com/5/4120/4863093679_a32a704ff9_b.jpg"
+        },
+        {
+            "id": "wheezes",
+            "name": "wheezes",
+            "title": "Всевозможные волшебные вредилки",
+            "imageSrc": "https://i.pinimg.com/originals/66/c1/71/66c171c1e22851f9a4be695518cad938.jpg"
+        }
+    ]
+}

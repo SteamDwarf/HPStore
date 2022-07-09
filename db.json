@@ -159,76 +159,7 @@
       "imageSrc": "https://avatars.mds.yandex.net/i?id=5b61bd259c5efc38b75f9e3723de9183-5293797-images-thumbs&n=13"
     }
   ],
-  "users": [
-    {
-      "id": 1655977389468,
-      "email": "dhsfs@sfse.ry",
-      "password": "123456"
-    },
-    {
-      "id": 1655977430751,
-      "email": "dhsfs@sfse.rye",
-      "password": "qwertyuiiii"
-    },
-    {
-      "id": 1655977649725,
-      "email": "dmitriy_shazhko@yandex.ru",
-      "password": "dimon1999"
-    },
-    {
-      "id": 1655996014852,
-      "email": "dhsfs@sfse.ry1",
-      "password": "qwerty"
-    },
-    {
-      "id": 1656848503642,
-      "email": "schajckodmitrij@gmail.com",
-      "password": "qwerty"
-    },
-    {
-      "email": "schajckodmitrij@gmail.comadad",
-      "password": "qwerty",
-      "repeatedPassword": "qwerty",
-      "id": 1656848503643
-    },
-    {
-      "email": "schajckodeemitrij@gmail.com",
-      "password": "qwerty",
-      "id": 1656848503644
-    },
-    [
-      {
-        "id": 6,
-        "categoryId": "sweets",
-        "name": "caramel-bombs",
-        "title": "Карамельные бомбы",
-        "description": "Бобы Bertie Botts Beans Harry Potter конфеты Гарри Поттера, горячо любимые как поклонниками киноэпопеи и книг о молодом волшебнике Гарри Поттере, так и другими сладкоежками, мечтающими насладиться и удивить друзей поистине удивительными и крайне необычными, неоднозначными вкусами конфет Берти Боттс.",
-        "price": 200,
-        "imageSrc": "https://i.pinimg.com/originals/68/1a/cc/681acc248286f62857cde3f209ebe8d6.jpg",
-        "amount": 1
-      }
-    ],
-    [
-      {
-        "id": 6,
-        "categoryId": "sweets",
-        "name": "caramel-bombs",
-        "title": "Карамельные бомбы",
-        "description": "Бобы Bertie Botts Beans Harry Potter конфеты Гарри Поттера, горячо любимые как поклонниками киноэпопеи и книг о молодом волшебнике Гарри Поттере, так и другими сладкоежками, мечтающими насладиться и удивить друзей поистине удивительными и крайне необычными, неоднозначными вкусами конфет Берти Боттс.",
-        "price": 200,
-        "imageSrc": "https://i.pinimg.com/originals/68/1a/cc/681acc248286f62857cde3f209ebe8d6.jpg",
-        "amount": 1
-      },
-      {
-        "id": 5,
-        "categoryId": "sweets",
-        "name": "chocolate-frog",
-        "title": "Шоколадная лягушка",
-        "description": "Поклонники Гарри Поттера оценят этот вкусный молочный шоколад с хрустящим воздушным рисом в виде лягушки - Harry Potter Chocolate Frog. В каждой упаковке есть коллекционная магическая карта. В общей сложности 14 шт - попробуй собрать их всех!В наборе вы можете найти: Альбус Дамблдор, Хенгист из Вудкрофта, Хельга Хаффлпафф, Салазар Слизерин, Гилдерой Локхарт, Годрик Гриффиндор, Ровена Рэйвенкло, Джокунда Сайкс, Артемезия Лафкин, Берти Ботт, Девлин Уайтхорн, Мерлин, Дейзи Доддеридж, Гаррик Олливандер. Товары нашего магазина дополнительно упакованы в картонные коробки для обеспечения сохранной доставки покупателям.",
-        "price": 150,
-        "imageSrc": "https://i5.walmartimages.com/asr/23a071e2-d5e0-46bf-b929-b92e701a1e07_2.11d38d504759122b1dc998051918f0f8.jpeg",
-        "amount": 1
-      }
-    ]
+  "purchases": [
+    
   ]
 }

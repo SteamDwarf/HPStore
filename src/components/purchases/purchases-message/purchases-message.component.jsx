@@ -8,7 +8,8 @@ import Button from "../../btns/button/button.component";
 import { getUser } from "../../../redux/user/user.selectors";
 import Loader from "../../loader/loader.component";
 import { clearCart, setConfirmationWait, setPurchaseError } from "../../../redux/cart/cart.slice";
-import { useMakePurchaseMutation } from "../../../redux/api/app.api";
+import { useMakePurchaseMutation } from "../../../redux/api/purchase.api";
+//import { useMakePurchaseMutation } from "../../../redux/api/app.api";
 
 const PurchasesMessage = () => {
     const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const PurchasesMessage = () => {
     }
 
     const confirmMakingPurchase = () => {
-        makePurchase({user, cartProducts})
+        makePurchase({userId: user.id, purchases: cartProducts})
     }
 
     const closeMessage = () => {

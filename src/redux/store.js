@@ -4,8 +4,9 @@ import { FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist
 import { configureStore } from "@reduxjs/toolkit";
 import { appApi } from "./api/app.api";
 import { authApi } from "./api/auth.api";
+import { purchaseApi } from "./api/purchase.api";
 
-const middlewares = [appApi.middleware, authApi.middleware];
+const middlewares = [appApi.middleware, authApi.middleware, purchaseApi.middleware];
 
 export const store = configureStore({
     reducer: rootReducer,
