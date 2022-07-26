@@ -1,0 +1,19 @@
+@import '../../scss/vars.scss';
+
+.dropdown {
+    position: absolute;
+    z-index: 3;
+    border: 2px solid;
+    border-radius: 10px;
+}
+
+.main-container_theme_light .dropdown {
+    border-color: $dayBorderColor;
+    background-color: $dayPanelColorOpaque;
+}
+
+.main-container_theme_dark .dropdown {
+    border-color: $nightBorderColor;
+    background-color: $nightPanelColorOpaque;
+}
+

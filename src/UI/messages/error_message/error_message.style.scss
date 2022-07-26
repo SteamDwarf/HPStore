@@ -1,0 +1,24 @@
+@import '../../../scss/vars.scss';
+
+.error-message {
+    color: $redColor;
+    font-weight: bold;
+
+    &.small {
+        font-size: 12px;
+    }
+
+    &.medium {
+        font-size: 16px;
+    }
+
+    &.large {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 499px) {
+    .error-message.large {
+        font-size: 25px;
+    }
+}

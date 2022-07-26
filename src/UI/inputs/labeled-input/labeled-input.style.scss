@@ -1,0 +1,58 @@
+@import '../../../scss/vars.scss';
+
+@mixin shrinkedLabel {
+    top: 10%;
+    font-size: 14px;
+}
+
+.labeled-input__block {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    min-height: 50px;
+}
+
+.labeled-input {
+    width: 200px;
+    padding: 5px;
+    border: none;
+    border-bottom: 2px solid;
+    background-color: inherit;
+    outline: none;
+    z-index: 1;
+    font-size: 16px;
+
+    &__label {
+        position: absolute;
+        top: 50%;
+        text-align: left;
+        z-index: 0;
+        color: $placeholderColor;
+        font-size: 18px;
+        transition: top 0.5s, color 0.5s, font-size 0.5s;
+
+        &.shrink {
+            @include shrinkedLabel;
+        }
+    }
+
+    &:focus ~ &__label {
+        @include shrinkedLabel;
+    }
+}
+
+.main-container_theme_light .labeled-input {
+    border-color: $dayBorderColor;
+
+    &__label.shrink {
+        color: $dayTextColor;
+    }
+}
+
+.main-container_theme_dark .labeled-input {
+    border-color: $nightBorderColor;
+
+    &__label.shrink {
+        color: $nightTextColor;
+    }
+}

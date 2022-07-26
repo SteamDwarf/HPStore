@@ -1,0 +1,29 @@
+@import '../../../scss/vars.scss';
+
+.purchases__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 50px;
+    font-size: 2em;
+    background-color: $panelColor;
+}
+
+
+@media (max-width: 999px) {
+    .purchases__total {
+        padding: 25px;
+        font-size: 1.4em;
+    }    
+}
+
+@media (max-width: 499px) {
+    .purchases__total {
+        padding: 10px;
+        font-size: 14px;
+
+        & .btn {
+            font-size: 10px;
+        }
+    }
+}

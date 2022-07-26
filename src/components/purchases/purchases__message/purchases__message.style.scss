@@ -1,0 +1,21 @@
+@import '../../../scss/vars.scss';
+
+.purchases__message {
+    &-buttons-block {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 40px;
+    }
+}
+
+.main-container_theme_light .purchases__message {
+    &-title {
+        color: $dayTitleColor
+    }
+}
+
+.main-container_theme_dark .purchases__message {
+    &-title {
+        color: $nightTitleColor
+    }
+}

@@ -9,29 +9,42 @@
     background-color: $bgColor;
     text-align: center;
 
-    &_title {
-        font-family: 'Harry Potter';
+    &__title {
+        /* font-family: 'Harry Potter'; */
+        font-family: 'Leto Text Sans';
     }
 }
 
-.light .page-container {
+.main-container_theme_light .page-container {
     border-color: $dayBorderColor;
 
-    &_title {
+    &__title {
         color: $dayTitleColor;
     }
 }
 
-.dark .page-container {
+.main-container_theme_dark .page-container {
     border-color: $nightBorderColor;
 
-    &_title {
+    &__title {
         color: $nightTitleColor;
     }
 }
 
-@media (max-width: 799px) {
+@media (max-width: 1010px) {
     .page-container {
         width: 100%;
+        padding: 5px;
+    }
+}
+
+@media (max-width: 499px) {
+    .page-container {
+        background-color: transparent;
+        border: none;
+
+        &__title {
+            display: none;
+        }
     }
 }

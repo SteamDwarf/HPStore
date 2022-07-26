@@ -4,59 +4,31 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
     width: 100%;
     height: 80px;
     padding: 10px 20px;
     border-bottom: 2px solid;
     background-color: $bgColor;
 
-    &_logo-container {
+    &__logo-container {
         width: 50px;
         height: 50px;
     }
-
-    &_title {
-        font: 50px 'Harry Potter';
-    }
-
-    &_links-container {
-        display: flex;
-        align-items: center;
-        column-gap: 20px;
-    }
-
 }
 
-.light .header {
+.main-container_theme_light .header {
     border-color: $dayBorderColor;
 
-    &_logo {
+    &__logo {
         fill: $dayLogoColor;
-    }
-
-    &_title {
-        color: $dayBorderColor;
-    }
-
-    &_link {
-        border-color: $dayBorderColor;
-        color: $dayTitleColor;
     }
 }
 
-.dark .header {
+.main-container_theme_dark .header {
     border-color: $nightBorderColor;
 
-    &_logo {
+    &__logo {
         fill: $nightLogoColor;
-    }
-
-    &_title {
-        color: $nightBorderColor;
-    }
-
-    &_link {
-        border-color: $nightBorderColor;
-        color: $nightTitleColor;
     }
 }

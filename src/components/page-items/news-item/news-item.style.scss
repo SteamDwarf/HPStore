@@ -1,0 +1,70 @@
+@import '../../../scss/vars';
+
+.news-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    border-radius: 10px;
+    background-size: 100% 100%;
+
+    &:hover &__date {
+        background-color: $hoverPanelColor;
+    }
+    &:hover &__info {
+        background-color: $hoverPanelColor;
+    }
+
+    &__date {
+        padding: 3px 5px;
+        border-bottom: 2px solid;
+        border-radius: 10px 10px 0 0;
+        text-align: right;
+        background-color: $panelColor;
+        transition: background-color 0.5s;
+    }
+
+    &__info {
+        max-height: 150px;
+        padding: 0 5px;
+        border-top: 2px solid;
+        border-radius: 0 0 7px 7px ;
+        background-color: $panelColor;
+        transition: background-color 0.5s;
+    }
+
+    &__title {
+        padding: 10px 0;
+        text-align: center;
+    }
+}
+
+.main-container_theme_light .news-item {
+    &__date {
+        border-color: $dayBorderColor;
+        color: $dayTitleColor;
+    }
+
+    &__info {
+        border-color: $dayBorderColor;
+    }
+
+    &__title {
+        color: $dayTitleColor;
+    }
+}
+
+.main-container_theme_dark .news-item {
+    &__date {
+        border-color: $nightBorderColor;
+        color: $nightTitleColor;
+    }
+
+    &__info {
+        border-color: $nightBorderColor;
+    }
+
+    &__title {
+        color: $nightTitleColor;
+    }
+}

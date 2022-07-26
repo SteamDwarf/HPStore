@@ -29,7 +29,7 @@ const Main = () => {
     }
 
     return (
-        <div className={`container ${theme}`} onClick={onClickHandler}>
+        <div className={`main-container main-container_theme_${theme}`} onClick={onClickHandler}>
             <Header />
             <Outlet />
         </div>

@@ -1,8 +1,8 @@
 import { useParams } from "react-router";
-import Container from "../../components/container/container.component";
 import PageContainer from "../../components/page-container/page-container.component";
 import { CONTAINER_TYPES } from "../../utils/types";
 import { useFetchCategoryQuery, useFetchProductsQuery } from "../../redux/api/app.api";
+import ItemHolder from "../../components/page-container/__item-holder/page-container__item-holder.component";
 
 const Category = () => {
     const categoryName = useParams().category_name;
@@ -11,7 +11,7 @@ const Category = () => {
 
     return (
         <PageContainer title={categoryData?.title} isFetching={isLoading || isLoadingProduct} error={error || errorProducst}>
-            <Container itemsType={CONTAINER_TYPES.PRODUCT_ITEM} items={products}/>
+            <ItemHolder itemsType={CONTAINER_TYPES.PRODUCT_ITEM} items={products}/>
         </PageContainer>
     );
 };

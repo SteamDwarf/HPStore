@@ -1,0 +1,42 @@
+@import '../../../scss/vars.scss';
+
+.page-container__item-holder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1 1 auto;
+    column-gap: 1.5%;
+    row-gap: 15px;
+    margin: 20px;
+}
+
+.page-container__item {
+    width: 300px;
+    height: 300px;
+    border: 2px solid;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.5s;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.main-container_theme_light .page-container__item {
+    border-color: $dayBorderColor;
+}
+.main-container_theme_dark .page-container__item {
+    border-color: $nightBorderColor;
+}
+
+
+@media (max-width: 499px) {
+    .page-container__item-holder {
+        margin: 0px;
+    }
+
+    .page-container__item:hover {
+        transform: none;
+    }
+}

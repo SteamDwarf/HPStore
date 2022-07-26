@@ -1,0 +1,35 @@
+@import '../../../scss/vars.scss';
+
+.purchases__header {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    padding: 20px 10px;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    background-color: $panelColor;
+
+    &-title {
+        width: 20.25%;
+    }
+
+    &-title:first-of-type {
+        width: 19%;
+    }
+}
+
+.main-container_theme_light .purchases__header {
+    border-color: $dayBorderColor;
+
+    &-title {
+        color: $dayTitleColor;
+    }
+}
+
+.main-container_theme_dark .purchases__header {
+    border-color: $nightBorderColor;
+
+    &-title {
+        color: $nightTitleColor;
+    }
+}

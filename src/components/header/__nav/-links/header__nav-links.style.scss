@@ -1,0 +1,30 @@
+@import '../../../../scss/vars.scss';
+
+.header__nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 20px;
+    width: 100%;
+}
+
+.header__link {
+    padding-bottom: 3px;
+    border-bottom: 2px solid;
+    font-size: 20px;
+    font-weight: bold;
+    font-family:  sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.main-container_theme_light .header__link {
+    border-color: $dayBorderColor;
+    color: $dayTitleColor;
+
+}
+
+.main-container_theme_dark .header__link {
+    border-color: $nightBorderColor;
+    color: $nightTitleColor;
+}

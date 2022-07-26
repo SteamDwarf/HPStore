@@ -1,0 +1,44 @@
+@import '../../../../scss/vars.scss';
+
+.cart-dropdown__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 15px;
+    height: 100px;
+    padding: 10px;
+
+    &-image {
+        width: 40%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &-info {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+
+    &-title {
+        margin-bottom: 10px;
+        border-bottom: 2px solid;
+    }
+
+    &-price {
+        font-weight: bold;
+        font-size: 18px;
+    }
+}
+
+.main-container_theme_light .cart-dropdown__item {
+    &-title {
+        border-color: $dayBorderColor;
+    }
+}
+
+.main-container_theme_dark .cart-dropdown__item {
+    &-title {
+        border-color: $nightBorderColor;
+    }
+}

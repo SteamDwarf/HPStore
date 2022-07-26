@@ -1,0 +1,41 @@
+@import '../../../scss/vars.scss';
+
+.burger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 80px;
+    cursor: pointer;
+}
+
+.burger-btn__content,
+.burger-btn__content::before,
+.burger-btn__content::after {
+    position: absolute;
+    width: 40px;
+    height: 5px;
+    border-radius: 10px;
+}
+
+.main-container_theme_light .burger-btn__content,
+.main-container_theme_light .burger-btn__content::before,
+.main-container_theme_light .burger-btn__content::after {
+    background-color: $dayTitleColor;
+}
+
+.main-container_theme_dark .burger-btn__content,
+.main-container_theme_dark .burger-btn__content::before,
+.main-container_theme_dark .burger-btn__content::after {
+    background-color: $nightTitleColor;
+}
+
+.burger-btn__content::before {
+    content: '';
+    margin-top: -10px;
+}
+.burger-btn__content::after {
+    content: '';
+    margin-top: 10px;
+}

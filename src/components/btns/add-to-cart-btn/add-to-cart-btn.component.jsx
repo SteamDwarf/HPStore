@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { getCartProps } from '../../../redux/cart/cart.selector';
 import { incrementProductAmount } from '../../../redux/cart/cart.slice';
+import Button from '../../../UI/buttons/button/button.component';
 import './add-to-cart-btn.style.scss';
 
 const AddToCartBtn = ({productItem, className}) => {
@@ -11,7 +12,7 @@ const AddToCartBtn = ({productItem, className}) => {
     }
 
     return(
-        <button className={className} onClick={addProductToCartHandler}>Добавить в корзину</button>
+        <Button className={className} onClick={addProductToCartHandler}>Добавить в корзину</Button>
     );
 }
 

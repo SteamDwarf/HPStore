@@ -1,0 +1,16 @@
+@import '../../../scss/vars.scss';
+
+.page-container__message {
+    padding: 15px 20px;
+    border: 2px solid;
+    border-radius: 10px;
+    background-color: $panelColor;
+}
+
+.main-container_theme_light .page-container__message {
+    border-color:  $dayBorderColor;
+}
+
+.main-container_theme_dark .page-container__message {
+    border-color:  $nightBorderColor;
+}

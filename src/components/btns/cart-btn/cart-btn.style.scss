@@ -4,13 +4,13 @@
     position: relative;
     cursor: pointer;
 
-    &_logo {
+    &__logo {
         width: 50px;
         height: 50px;
     }
 }
 
-.cart-items-count {
+.cart-btn__items-count {
     position: absolute;
     top: 38%;
     right: 35%;

@@ -1,6 +1,11 @@
 @font-face {
   font-family: "Harry Potter";
-  src: local('Harry Potter'), url(./assets/fonts/HarryPotter.ttf) format('truetype');
+  src: local("Harry Potter"), url(./assets/fonts/HarryPotter.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Leto Text Sans";
+  src: local("Leto Text Sans"), url(./assets/fonts/leto-text-sans-defect.regular.ttf) format("truetype");
 }
 
 @font-face {
@@ -76,23 +81,18 @@ h5 {
 
 @media (max-width: 499px) {
   h1 {
-    font-size: 45px;
+    font-size: 42px;
   }
 
   h2 {
-    font-size: 30px;
+    font-size: 35px;
   }
+
+  h3 {
+    font-size: 25px;
+  }
+
   h4 {
     font-size:  16px;
-  }
-}
-
-@media (max-width: 349px) {
-  h1 {
-    font-size: 40px;
-  }
-
-  h4 {
-    font-size: 14px;
   }
 }

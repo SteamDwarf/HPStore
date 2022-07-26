@@ -1,0 +1,50 @@
+@import '../../../../../scss/vars.scss';
+
+.header__links-dropdown {
+    width: 100%;
+    top: 100%;
+    right: 0%;
+
+    &-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        height: 100%;
+    }
+
+    &-link {
+        width: 100%;
+        text-decoration: none;
+        text-align: center;
+        font-weight: bold;
+        font-size: 25px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid;
+        transition: background-color 0.5s, color 0.5s;
+    }
+
+    &-link:last-of-type {
+        border: none;
+    }
+
+    .main-container_theme_light &-link {
+        color: $dayTitleColor;
+
+        &:hover {
+            background-color: $dayTitleColor;
+            color: #fff
+        }
+    }
+
+    .main-container_theme_dark &-link {
+        color: $nightTitleColor;
+
+        &:hover {
+            background-color: $nightTitleColor;
+            color: #fff
+        }
+    }
+}

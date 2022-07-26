@@ -14,11 +14,11 @@
     text-align: center;
 }
 
-.light .authentification-block {
+.main-container_theme_light .authentification-block {
     border-color: $dayBorderColor;
 }
 
-.dark .authentification-block {
+.main-container_theme_dark .authentification-block {
     border-color: $nightBorderColor;
 }
 

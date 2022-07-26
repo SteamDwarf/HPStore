@@ -15,8 +15,8 @@ const CartBtn = () => {
 
     return (
         <div className='cart-btn' onClick={toggleCartDropdownHandler}>
-            <img className='cart-btn_logo' src={cartImg} alt="" />
-            <span className='cart-items-count'>{cartProductsAmount}</span>
+            <img className='cart-btn__logo' src={cartImg} alt="cart" />
+            <span className='cart-btn__items-count'>{cartProductsAmount}</span>
         </div>
     );
 };

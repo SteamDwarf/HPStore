@@ -1,0 +1,41 @@
+@import '../../../scss/vars.scss';
+
+.btn {
+    min-width: 100px;
+    padding: 10px;
+    border: 2px solid;
+    border-radius: 5px;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: $panelColor;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.main-container_theme_light .btn {
+    border-color: $dayBorderColor;
+    color: $dayBorderColor;
+
+    &:hover {
+        background-color: $dayBorderColor;
+        color: #fff;
+    }
+}
+
+.main-container_theme_dark .btn {
+    border-color: $nightBorderColor;
+    color: $nightBorderColor;
+
+    &:hover {
+        background-color: $nightBorderColor;
+        color: #fff;
+    }
+}
+
+@media (max-width: 499px) {
+    .btn {
+        font-size: 12px;
+    }
+}
