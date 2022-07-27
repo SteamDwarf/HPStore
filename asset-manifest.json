@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/HPStore/static/css/main.0eee1adc.css",
-    "main.js": "/HPStore/static/js/main.e69db91a.js",
+    "main.css": "/HPStore/static/css/main.780f1241.css",
+    "main.js": "/HPStore/static/js/main.8c99bbf0.js",
     "static/js/787.99e1e651.chunk.js": "/HPStore/static/js/787.99e1e651.chunk.js",
     "static/media/626b97c093fcf.png": "/HPStore/static/media/626b97c093fcf.59e13a6706f2e86f8a94.png",
     "static/media/626b9729590b4.png": "/HPStore/static/media/626b9729590b4.734e75d0d90512964584.png",
@@ -13,12 +13,12 @@
     "static/media/sun-svgrepo-com (1).svg": "/HPStore/static/media/sun-svgrepo-com (1).eecf59b679048bc0d60ae022a0a271e7.svg",
     "static/media/golden_harry_magic_movie_potter_snitch_icon_183153.svg": "/HPStore/static/media/golden_harry_magic_movie_potter_snitch_icon_183153.ff2f7ad36cddf2ed337475b3ba237b5d.svg",
     "index.html": "/HPStore/index.html",
-    "main.0eee1adc.css.map": "/HPStore/static/css/main.0eee1adc.css.map",
-    "main.e69db91a.js.map": "/HPStore/static/js/main.e69db91a.js.map",
+    "main.780f1241.css.map": "/HPStore/static/css/main.780f1241.css.map",
+    "main.8c99bbf0.js.map": "/HPStore/static/js/main.8c99bbf0.js.map",
     "787.99e1e651.chunk.js.map": "/HPStore/static/js/787.99e1e651.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0eee1adc.css",
-    "static/js/main.e69db91a.js"
+    "static/css/main.780f1241.css",
+    "static/js/main.8c99bbf0.js"
   ]
 }
