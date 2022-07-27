@@ -3,3 +3,18 @@
 .purchases__body {
     background-color: $panelColor;
 }
+
+@media (max-width: 1000px) {
+    .purchases__body {
+        margin-top: 20px;
+        border-top: 2px solid;
+    }
+
+    .main-container_theme_light .purchases__body {
+        border-color: $dayBorderColor;
+    }
+    
+    .main-container_theme_dark .purchases__body {
+        border-color: $nightBorderColor;
+    }
+}
