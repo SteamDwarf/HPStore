@@ -12,8 +12,10 @@ const ProductItem = ({productItem}) => {
                 <img className='product-item__img' src={imageSrc} alt={name} />
             </Link>
             <div className='product-item__data'>
-                <h3 className='product-item__price'>{price} Р</h3>
-                <h5 className='product-item__title'>{title}</h5>
+                <div className="product-item__data-text">
+                    <h5 className='product-item__title'>{title}</h5>
+                    <h4 className='product-item__price'>{price} &#8381;</h4>
+                </div>
                 <AddToCartBtn className='product-item__add-to-cart-btn' productItem={productItem}/>
             </div>
         </div>
